@@ -83,11 +83,11 @@ function canvasInput(): void {
     crc2.fill();
     
     // Trees
-    for (var i = 1; i < 12; i++) {
+    for (var i:number = 1; i < 11; i++) {
         drawTree(Math.floor(Math.random() * (340 - 15 + 1) + 15), Math.floor(Math.random() * (570 - 250 + 1) + 250), crc2);
     }
     // Schneeflocken
-    for (var i = 1; i < 40; i++) {
+    for (var i:number = 1; i < 40; i++) {
         drawSnowflake(Math.floor(Math.random() * (800 + 1)), Math.floor(Math.random() * (600 + 1)), crc2);
     }
    }
