@@ -180,16 +180,6 @@ function canvasInput(): void {
     
     //Funktion für Wolken
     function drawwolke(_x: number, _y: number): void {
-       /* crc2.beginPath();
-        crc2.arc(_x + 30, _y, 50, 0, 2 * Math.PI);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.arc(_x, _y - 40, 40, 0, 2 * Math.PI);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.arc(_x, _y, 60, 0, 2 * Math.PI);
-        crc2.fillStyle = "#ffffff";
-        crc2.fill();*/
         crc2.beginPath();
         crc2.arc(740,80,20,1,3 * Math.PI);
         crc2.fillStyle ="#ffffff";
