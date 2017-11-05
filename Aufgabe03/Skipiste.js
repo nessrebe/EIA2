@@ -8,8 +8,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 var Aufgabe3;
 (function (Aufgabe3) {
-    window.addEventListener("load", canvasInput);
-    let canvas; // variable Allgemein/zentral von allen Funktionen abrufbar 
+    window.addEventListener("load", canvasInput); // Funktion canvasInput beginnt wenn Seite vollständig geladen hat 
+    let canvas; // variable Allgemein/zentral GLOBAL von allen Funktionen abrufbar (Kiste in großem Raum)
     console.log(canvas);
     let crc2; // " "
     console.log(crc2);
@@ -74,28 +74,8 @@ var Aufgabe3;
         crc2.lineTo(430, 200);
         crc2.strokeStyle = "#000";
         crc2.stroke();
-        /*// Wolke
-        crc2.beginPath();
-        crc2.arc(740,80,20,1,3 * Math.PI);
-        crc2.fillStyle ="#ffffff";
-        crc2.fill();
-        crc2.beginPath();
-        crc2.arc(720,60,20,2,4 * Math.PI);
-        crc2.fillStyle ="#ffffff";
-        crc2.fill();
-        crc2.beginPath();
-        crc2.arc(720,100,20,2,4 * Math.PI);
-        crc2.fillStyle ="#ffffff";
-        crc2.fill();
-        crc2.beginPath();
-        crc2.arc(700,70,20,2,4 * Math.PI);
-        crc2.fillStyle ="#ffffff";
-        crc2.fill();
-        crc2.beginPath();
-        crc2.arc(705,95,20,2,4 * Math.PI);
-        crc2.fillStyle ="#ffffff";
-        crc2.fill();*/
         image = crc2.getImageData(0, 0, 800, 600); //Bild in Variable speichern
+        /////////Start Schleifen 
         // Trees
         for (var i = 1; i < 8; i++) {
             drawTree(Math.floor(Math.random() * (300 - 15 + 1) + 15), Math.floor(Math.random() * (570 - 250 + 1) + 250), crc2);
@@ -115,8 +95,39 @@ var Aufgabe3;
             skierX[i] = 0;
             skierY[i] = 250;
         }
+    } // Schließende Klammer der Funktion canvasInput
+    /////////Funktion Animationen
+    function animate() {
+        console.log("Timeout");
+        crc2.clearRect(0, 0, 800, 600); // Hintergrundbild löschen
+        crc2.putImageData(image, 0, 0); // Hintergrundbild einsetzen
+        /////////SCHLEIFEN
+        for (let i = 0; i < schneeX.length; i++) {
+            if (schneeY[i] > 600) {
+                schneeY[i] = 0;
+            }
+            schneeY[i] += Math.random(); //Schnelligkeit und Bewegungsschleife der Schneeflocken auf der y-Achse. Höhere Zahl = schnellere Bewegung
+            drawSnowflake(schneeX[i], schneeY[i]); //Aufruf Schneeflocken Array
+        }
+        for (let i = 0; i < wolkeX.length; i++) {
+            if (wolkeX[i] > 800) {
+                wolkeX[i] = 0;
+            }
+            wolkeX[i] += Math.random();
+            drawwolke(wolkeX[i], wolkeY[i]);
+        }
+        for (let i = 0; i < skierX.length; i++) {
+            if (skierX[i] > 800) {
+                skierX[i] = 0;
+                skierY[i] = 250;
+            }
+            skierX[i] += 10;
+            skierY[i] += 5;
+            drawskier(skierX[i], skierY[i]);
+        }
+        window.setTimeout(animate, 15);
     }
-    ////////FUNKTIONEN
+    /////////FUNKTIONEN (zeichung der in Schleifen aufgerufenen Objekte)
     //Funktion für Trees
     function drawTree(_x, _y, crc2) {
         crc2.beginPath();
@@ -129,17 +140,15 @@ var Aufgabe3;
         crc2.closePath();
     }
     //Funktion für Schnee
-    function drawSnowflake(_x, _y, crc2) {
+    function drawSnowflake(_x, _y) {
         crc2.beginPath();
-        crc2.arc(_x, _y, 4, 0 * Math.PI, 2.0 * Math.PI);
-        //crc2.strokeStyle = "#BDBDBD";
-        //crc2.stroke();
+        crc2.arc(_x, _y, 4, 0, 3 * Math.PI);
         crc2.fillStyle = "#111";
         crc2.fill();
         crc2.closePath();
     }
     //Funktion für Wolken
-    function wolke(_x, _y) {
+    function drawwolke(_x, _y) {
         /* crc2.beginPath();
          crc2.arc(_x + 30, _y, 50, 0, 2 * Math.PI);
          crc2.fill();
@@ -149,8 +158,8 @@ var Aufgabe3;
          crc2.beginPath();
          crc2.arc(_x, _y, 60, 0, 2 * Math.PI);
          crc2.fillStyle = "#ffffff";
-         crc2.fill();
-         crc2.beginPath();*/
+         crc2.fill();*/
+        crc2.beginPath();
         crc2.arc(740, 80, 20, 1, 3 * Math.PI);
         crc2.fillStyle = "#ffffff";
         crc2.fill();
@@ -170,9 +179,10 @@ var Aufgabe3;
         crc2.arc(705, 95, 20, 2, 4 * Math.PI);
         crc2.fillStyle = "#ffffff";
         crc2.fill();
+        //crc2.closePath();
     }
     //Funktion für Skier 
-    function skier(_x, _y) {
+    function drawskier(_x, _y) {
         crc2.fillStyle = "#7D7D7D";
         crc2.fillRect(_x, _y, 10, -25);
         crc2.beginPath();

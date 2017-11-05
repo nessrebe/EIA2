@@ -8,9 +8,9 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 namespace Aufgabe3 {
     
-window.addEventListener("load", canvasInput);
+window.addEventListener("load", canvasInput);  // Funktion canvasInput beginnt wenn Seite vollständig geladen hat 
     
-let canvas: HTMLCanvasElement;              // variable Allgemein/zentral von allen Funktionen abrufbar 
+let canvas: HTMLCanvasElement;              // variable Allgemein/zentral GLOBAL von allen Funktionen abrufbar (Kiste in großem Raum)
    console.log(canvas);
     
 let crc2: CanvasRenderingContext2D;        // " "
@@ -81,29 +81,10 @@ function canvasInput(): void {
     crc2.lineTo(430, 200);
     crc2.strokeStyle = "#000";
     crc2.stroke();
-    /*// Wolke 
-    crc2.beginPath();
-    crc2.arc(740,80,20,1,3 * Math.PI);
-    crc2.fillStyle ="#ffffff";
-    crc2.fill();
-    crc2.beginPath();
-    crc2.arc(720,60,20,2,4 * Math.PI);
-    crc2.fillStyle ="#ffffff";
-    crc2.fill();
-    crc2.beginPath();
-    crc2.arc(720,100,20,2,4 * Math.PI);
-    crc2.fillStyle ="#ffffff";
-    crc2.fill();
-    crc2.beginPath();
-    crc2.arc(700,70,20,2,4 * Math.PI);
-    crc2.fillStyle ="#ffffff";
-    crc2.fill();
-    crc2.beginPath();
-    crc2.arc(705,95,20,2,4 * Math.PI);
-    crc2.fillStyle ="#ffffff";
-    crc2.fill();*/
     
     image = crc2.getImageData(0, 0, 800, 600);      //Bild in Variable speichern
+    
+    /////////Start Schleifen 
     
     // Trees
     for (var i:number = 1; i < 8; i++) {
@@ -135,8 +116,8 @@ function canvasInput(): void {
     
     function animate(): void {
         console.log("Timeout");
-        crc2.clearRect(0, 0, 800, 600); // Hintergrund löschen
-        crc2.putImageData(image, 0, 0); //Hintergrund einfügen
+        crc2.clearRect(0, 0, 800, 600);     // Hintergrundbild löschen
+        crc2.putImageData(image, 0, 0);     // Hintergrundbild einsetzen
         
 
     /////////SCHLEIFEN
@@ -146,8 +127,8 @@ function canvasInput(): void {
                 schneeY[i] = 0;
             }
 
-            schneeY[i] += Math.random(); // Bewegung und Geschwindigkeit der Schneeflocken y-Achse. Je größer die Zahl desto schneller die Bewegung
-            drawSnowflake(schnee[i], schnee[i]); //Funktionsaufruf Schneeflocken, Übergabe X und Y-Werte
+            schneeY[i] += Math.random(); //Schnelligkeit und Bewegungsschleife der Schneeflocken auf der y-Achse. Höhere Zahl = schnellere Bewegung
+            drawSnowflake(schneeX[i], schneeY[i]); //Aufruf Schneeflocken Array
         }
 
         for (let i: number = 0; i < wolkeX.length; i++) {
@@ -173,7 +154,7 @@ function canvasInput(): void {
     }
 
     
-    /////////FUNKTIONEN
+    /////////FUNKTIONEN (zeichung der in Schleifen aufgerufenen Objekte)
     
      //Funktion für Trees
     function drawTree(_x: number, _y: number, crc2: any): void {
@@ -188,21 +169,12 @@ function canvasInput(): void {
     }
     
     //Funktion für Schnee
-    /*function drawSnowflake(_x: number, _y: number): void {
+    function drawSnowflake(_x: number, _y: number): void {
         crc2.beginPath();
-        crc2.arc(_x, _y, 4, 0 * Math.PI, 2.0 * Math.PI);
-        //crc2.strokeStyle = "#BDBDBD";
-        //crc2.stroke();
+        crc2.arc(_x, _y, 4, 0, 3 * Math.PI);
         crc2.fillStyle = "#111";
         crc2.fill();
         crc2.closePath();
-    }*/
-
-    function drawSnowflake(_x: number, _y: number): void {
-        crc2.beginPath();
-        crc2.arc(_x, _y, 3, 0, 2 * Math.PI);
-        crc2.fillStyle = "#111";
-        crc2.fill();
     }
     
     //Funktion für Wolken
