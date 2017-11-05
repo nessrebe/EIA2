@@ -99,9 +99,9 @@ function canvasInput(): void {
         }
     
     // bewegende Wolken
-     for (let i: number = 0; i < 2; i++) {
+     for (let i: number = 0; i < 3; i++) {
          wolkeX[i] = 0 + Math.random() * 800;
-         wolkeY[i] = 0 + Math.random() * 150 + 40;
+         wolkeY[i] = 0 + Math.random() * 200  + 50;
         }
     
     // Skier 

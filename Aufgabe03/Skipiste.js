@@ -86,9 +86,9 @@ var Aufgabe3;
             schneeY[i] = 0 + Math.random() * 600; //0 Start y-Achse, geht bis Bereich 600
         }
         // bewegende Wolken
-        for (let i = 0; i < 2; i++) {
+        for (let i = 0; i < 3; i++) {
             wolkeX[i] = 0 + Math.random() * 800;
-            wolkeY[i] = 0 + Math.random() * 150 + 40;
+            wolkeY[i] = 0 + Math.random() * 200 + 50;
         }
         // Skier 
         for (let i = 0; i < 1; i++) {
