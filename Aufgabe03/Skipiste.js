@@ -95,6 +95,7 @@ var Aufgabe3;
             skierX[i] = 0;
             skierY[i] = 250;
         }
+        animate();
     } // Schließende Klammer der Funktion canvasInput
     /////////Funktion Animationen
     function animate() {
@@ -143,7 +144,7 @@ var Aufgabe3;
     function drawSnowflake(_x, _y) {
         crc2.beginPath();
         crc2.arc(_x, _y, 4, 0, 3 * Math.PI);
-        crc2.fillStyle = "#111";
+        crc2.fillStyle = "#fff";
         crc2.fill();
         crc2.closePath();
     }
@@ -184,9 +185,9 @@ var Aufgabe3;
     //Funktion für Skier 
     function drawskier(_x, _y) {
         crc2.fillStyle = "#7D7D7D";
-        crc2.fillRect(_x, _y, 10, -25);
+        crc2.fillRect(_x, _y, 10, -15);
         crc2.beginPath();
-        crc2.arc(_x + 20, _y - 35, 15, 0, 2 * Math.PI);
+        crc2.arc(_x + 10, _y - 25, 5, 0, 2 * Math.PI);
         crc2.fill();
         crc2.beginPath();
         crc2.moveTo(_x - 30, _y - 15);
