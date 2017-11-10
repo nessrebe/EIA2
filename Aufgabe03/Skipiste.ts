@@ -1,14 +1,24 @@
 /*  
-Aufgabe: Aufgabe 3
+Aufgabe: Aufgabe 4
 Name: Rebecca Neß
 Matrikel: 256154
-Datum: 03.11.2017
+Datum: 09.11.2017
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-namespace Aufgabe3 {
+namespace Aufgabe4 {
     
 window.addEventListener("load", canvasInput);  // Funktion canvasInput beginnt wenn Seite vollständig geladen hat 
+  
+    
+    interface skifahrer {
+    x: number;
+    y: number;
+    dx: number;
+    dy: number;
+    color: string;
+    }
+    
     
 let canvas: HTMLCanvasElement;              // variable Allgemein/zentral GLOBAL von allen Funktionen abrufbar (Kiste in großem Raum)
    console.log(canvas);
@@ -16,18 +26,18 @@ let canvas: HTMLCanvasElement;              // variable Allgemein/zentral GLOBAL
 let crc2: CanvasRenderingContext2D;        // " "
    console.log(crc2);
     
+    
 //Arrays 
 let schneeX: number[] = [];
 let schneeY: number[] = [];
 let wolkeX: number[] = [];
 let wolkeY: number[] = [];
-let skierX: number[] = [];
-let skierY: number[] = [];
-  
+let skier: skifahrer [] = [];              // Variable die das Interface "skifahrer" aufruft 
+     
     
-let image: ImageData; //ImageData anstatt "any" / Ausgabe Hintergrundbild
-    
+let image: ImageData;   //ImageData anstatt "any" / Ausgabe Hintergrundbild
 
+    
 function canvasInput(): void {
     canvas = document.getElementsByTagName("canvas") [0]; //Var canvas wird in der funktion aufgerufen 
     crc2 = canvas.getContext("2d"); //Aufruf crc2 variable in der Funktion 
@@ -81,8 +91,7 @@ function canvasInput(): void {
     crc2.lineTo(430, 200);
     crc2.strokeStyle = "#000";
     crc2.stroke();
-    
-    image = crc2.getImageData(0, 0, 800, 600);      //Bild in Variable speichern
+  
     
     /////////Start Schleifen 
     
@@ -101,16 +110,26 @@ function canvasInput(): void {
     // bewegende Wolken
      for (let i: number = 0; i < 3; i++) {
          wolkeX[i] = 0 + Math.random() * 800;
-         wolkeY[i] = 0 + Math.random() * 200  + 50;
+         wolkeY[i] = 0 + Math.random() * 200 + 50;
         }
     
     // Skier 
-     for (let i: number = 0; i < 1; i++) {
-         skierX[i] = 0;
-         skierY[i] = 250;
+     for (let i: number = 0; i < 4; i++) {
+         skier[i] = {
+             x: 0,
+             y: 250,
+             dx: Math.random() * 8 + 5,
+             dy: Math.random() * 8 + 10,
+             color: "hsl(" + Math.random() * 360 + ", 100%, 50%)"
+             };
         }
+    
+    image = crc2.getImageData(0, 0, 800, 600);      //Bild in Variable speichern
+    
     animate();
+    
     } // Schließende Klammer der Funktion canvasInput
+    
     
     
     /////////Funktion Animationen
@@ -141,21 +160,25 @@ function canvasInput(): void {
             drawwolke(wolkeX[i], wolkeY[i]);
         }
 
-        for (let i: number = 0; i < skierX.length; i++) {
-            if (skierX[i] > 800) {
-                skierX[i] = 0;
-                skierY[i] = 250;
-            }
-
-            skierX[i] += 10;
-            skierY[i] += 5;
-            drawskier(skierX[i], skierY[i]);
+        for (let i: number = 0; i < skier.length; i++) {
+            
+            drawskier(skier[i]);
+            
+            if (skier[i].x > 800, skier[i].y > 650) {
+                skier[i].x = 0;
+                skier[i].y = 230; // Winkel in dem der Skier den Berg unter fährt 
+                }
+            
+            skier[i].x += 17;
+            skier[i].y += 4;
+            //drawskier(skier[i].x, skier[i].y);
         }
         window.setTimeout(animate, 15);
     }
 
     
-    /////////FUNKTIONEN (zeichung der in Schleifen aufgerufenen Objekte)
+    
+    /////////FUNKTIONEN (Zeichung, der in Schleifen aufgerufenen Objekten)
     
      //Funktion für Trees
     function drawTree(_x: number, _y: number, crc2: any): void {
@@ -180,39 +203,32 @@ function canvasInput(): void {
     
     //Funktion für Wolken
     function drawwolke(_x: number, _y: number): void {
-        crc2.beginPath();
-        crc2.arc(740,80,20,1,3 * Math.PI);
         crc2.fillStyle ="#ffffff";
+        crc2.beginPath();
+        crc2.arc(_x, _y, 30,0,2 * Math.PI);
         crc2.fill();
         crc2.beginPath();
-        crc2.arc(720,60,20,2,4 * Math.PI);
-        crc2.fillStyle ="#ffffff";
+        crc2.arc(_x, _y, 40,0,2 * Math.PI);
         crc2.fill();
         crc2.beginPath();
-        crc2.arc(720,100,20,2,4 * Math.PI);
-        crc2.fillStyle ="#ffffff";
+        crc2.arc(_x , _y , 30,0,2 * Math.PI);
         crc2.fill();
-        crc2.beginPath();
-        crc2.arc(700,70,20,2,4 * Math.PI);
-        crc2.fillStyle ="#ffffff";
-        crc2.fill();
-        crc2.beginPath();
-        crc2.arc(705,95,20,2,4 * Math.PI);
-        crc2.fillStyle ="#ffffff";
-        crc2.fill();
-        //crc2.closePath();
         }
     
     //Funktion für Skier 
-    function drawskier(_x: number, _y: number): void {
-        crc2.fillStyle = "#7D7D7D";
-        crc2.fillRect(_x, _y, 10, -15);
+    function drawskier( _skier: skifahrer): void {
+        
+        _skier.x += _skier.dx;// * 0.003;
+        _skier.y += _skier.dy;// * 0.003;      // um andere Bewegungsmuster zu finden 
+        
+        crc2.fillStyle = _skier.color;
+        crc2.fillRect(_skier.x, _skier.y, 10, -15);
         crc2.beginPath();
-        crc2.arc(_x + 10, _y - 25, 5, 0, 2 * Math.PI);
+        crc2.arc(_skier.x + 10, _skier.y - 25, 5, 0, 2 * Math.PI);
         crc2.fill();
         crc2.beginPath();
-        crc2.moveTo(_x - 30, _y - 15);
-        crc2.lineTo(_x + 40, _y + 10);
+        crc2.moveTo(_skier.x - 30, _skier.y - 15);
+        crc2.lineTo(_skier.x + 40, _skier.y + 10);
         crc2.stroke();
     }  
    
