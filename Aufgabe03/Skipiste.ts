@@ -32,6 +32,7 @@ let schneeX: number[] = [];
 let schneeY: number[] = [];
 let wolkeX: number[] = [];
 let wolkeY: number[] = [];
+    
 let skier: skifahrer [] = [];              // Variable die das Interface "skifahrer" aufruft 
      
     
@@ -218,8 +219,8 @@ function canvasInput(): void {
     //Funktion für Skier 
     function drawskier( _skier: skifahrer): void {
         
-        _skier.x += _skier.dx;// * 0.003;
-        _skier.y += _skier.dy;// * 0.003;      // um andere Bewegungsmuster zu finden 
+        _skier.x += _skier.dx;
+        _skier.y += _skier.dy;           // um andere Bewegungsmuster zu finden 
         
         crc2.fillStyle = _skier.color;
         crc2.fillRect(_skier.x, _skier.y, 10, -15);

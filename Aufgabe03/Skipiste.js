@@ -167,8 +167,8 @@ var Aufgabe4;
     }
     //Funktion für Skier 
     function drawskier(_skier) {
-        _skier.x += _skier.dx; // * 0.003;
-        _skier.y += _skier.dy; // * 0.003;      // um andere Bewegungsmuster zu finden 
+        _skier.x += _skier.dx;
+        _skier.y += _skier.dy; // um andere Bewegungsmuster zu finden 
         crc2.fillStyle = _skier.color;
         crc2.fillRect(_skier.x, _skier.y, 10, -15);
         crc2.beginPath();
