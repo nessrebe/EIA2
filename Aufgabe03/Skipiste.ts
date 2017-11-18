@@ -2,7 +2,7 @@
 Aufgabe: Aufgabe 4
 Name: Rebecca Neß
 Matrikel: 256154
-Datum: 09.11.2017
+Datum: 08.11.2017
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
@@ -14,7 +14,7 @@ window.addEventListener("load", canvasInput);  // Funktion canvasInput beginnt w
     interface skifahrer {
     x: number;
     y: number;
-    dx: number;
+    dx: number;                     // Geschwindigkeit mit der sich der Skifahrer bewegt 
     dy: number;
     color: string;
     }
@@ -119,8 +119,8 @@ function canvasInput(): void {
          skier[i] = {
              x: 0,
              y: 250,
-             dx: Math.random() * 8 + 5,
-             dy: Math.random() * 8 + 10,
+             dx: Math.random() * 10 + 5,
+             dy: Math.random() * 10 + 10,
              color: "hsl(" + Math.random() * 360 + ", 100%, 50%)"
              };
         }
@@ -165,9 +165,9 @@ function canvasInput(): void {
             
             drawskier(skier[i]);
             
-            if (skier[i].x > 800, skier[i].y > 650) {
+            if (skier[i].x > 800, skier[i].y > 650) {   // wenn Skifahrer bei 800/650 ist startet er neu am Anfang 
                 skier[i].x = 0;
-                skier[i].y = 230; // Winkel in dem der Skier den Berg unter fährt 
+                skier[i].y = 230;       // Winkel in dem der Skier den Berg unter fährt 
                 }
             
             skier[i].x += 17;
@@ -220,7 +220,7 @@ function canvasInput(): void {
     function drawskier( _skier: skifahrer): void {
         
         _skier.x += _skier.dx;
-        _skier.y += _skier.dy;           // um andere Bewegungsmuster zu finden 
+        _skier.y += _skier.dy;           // damit sich Skifahrer bewegen | um andere Bewegungsmuster zu finden
         
         crc2.fillStyle = _skier.color;
         crc2.fillRect(_skier.x, _skier.y, 10, -15);

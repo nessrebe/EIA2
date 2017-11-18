@@ -6,15 +6,4 @@ Datum: 15.11.2017
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-
-html {
-  font-family: arial, sans-serif;
-}
-
-canvas {
-  max-width: 90%;
-  padding: 0;
-  margin: auto;
-  display: block;
-}
-
+//# sourceMappingURL=Schnee.js.map

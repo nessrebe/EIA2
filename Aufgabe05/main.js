@@ -1,24 +1,22 @@
 /*
-Aufgabe: Aufgabe 4
+Aufgabe: Aufgabe 5
 Name: Rebecca Neß
 Matrikel: 256154
-Datum: 08.11.2017
+Datum: 15.11.2017
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-var Aufgabe4;
-(function (Aufgabe4) {
+var Aufgabe5;
+(function (Aufgabe5) {
     window.addEventListener("load", canvasInput); // Funktion canvasInput beginnt wenn Seite vollständig geladen hat 
     let canvas; // variable Allgemein/zentral GLOBAL von allen Funktionen abrufbar (Kiste in großem Raum)
     console.log(canvas);
     let crc2; // " "
     console.log(crc2);
     //Arrays 
-    let schneeX = [];
-    let schneeY = [];
-    let wolkeX = [];
-    let wolkeY = [];
     let skier = []; // Variable die das Interface "skifahrer" aufruft 
+    let schnee = [];
+    let wolke = [];
     let image; //ImageData anstatt "any" / Ausgabe Hintergrundbild
     function canvasInput() {
         canvas = document.getElementsByTagName("canvas")[0]; //Var canvas wird in der funktion aufgerufen 
@@ -73,20 +71,30 @@ var Aufgabe4;
         crc2.lineTo(430, 200);
         crc2.strokeStyle = "#000";
         crc2.stroke();
-        /////////Start Schleifen 
+        /////////Start Schleif    
         // Trees
         for (var i = 1; i < 8; i++) {
             drawTree(Math.floor(Math.random() * (300 - 15 + 1) + 15), Math.floor(Math.random() * (570 - 250 + 1) + 250), crc2);
         }
         // fallende Schneeflocken
         for (let i = 0; i < 600; i++) {
-            schneeX[i] = 0 + Math.random() * 800; //0 Start x-Achse, geht bis Bereich 800 
-            schneeY[i] = 0 + Math.random() * 600; //0 Start y-Achse, geht bis Bereich 600
+            schnee[i] = {
+                x: 0,
+                y: 650,
+                dx: 0 + Math.random() * 800,
+                dy: 0 + Math.random() * 600,
+                color: "#ffffff"
+            };
         }
         // bewegende Wolken
         for (let i = 0; i < 3; i++) {
-            wolkeX[i] = 0 + Math.random() * 800;
-            wolkeY[i] = 0 + Math.random() * 200 + 50;
+            wolke[i] = {
+                x: 0,
+                y: 650,
+                dx: 0 + Math.random() * 800,
+                dy: 0 + Math.random() * 200 + 50,
+                color: "#ffffff"
+            };
         }
         // Skier 
         for (let i = 0; i < 4; i++) {
@@ -106,20 +114,18 @@ var Aufgabe4;
         console.log("Timeout");
         crc2.clearRect(0, 0, 800, 600); // Hintergrundbild löschen
         crc2.putImageData(image, 0, 0); // Hintergrundbild einsetzen
-        /////////SCHLEIFEN
-        for (let i = 0; i < schneeX.length; i++) {
-            if (schneeY[i] > 600) {
-                schneeY[i] = 0;
+        /////////SCHLEI    
+        for (let i = 0; i < schnee.length; i++) {
+            if (schnee[i].y > 600) {
+                schnee[i].y = 0;
             }
-            schneeY[i] += Math.random(); //Schnelligkeit und Bewegungsschleife der Schneeflocken auf der y-Achse. Höhere Zahl = schnellere Bewegung
-            drawSnowflake(schneeX[i], schneeY[i]); //Aufruf Schneeflocken Array
+            schnee[i].y += Math.random(); //Schnelligkeit und Bewegungsschleife der Schneeflocken auf der y-Achse. Höhere Zahl = schnellere Bewegung
         }
-        for (let i = 0; i < wolkeX.length; i++) {
-            if (wolkeX[i] > 800) {
-                wolkeX[i] = 0;
+        for (let i = 0; i < wolke.length; i++) {
+            if (wolke[i].x > 800) {
+                wolke[i].x = 0;
             }
-            wolkeX[i] += Math.random();
-            drawwolke(wolkeX[i], wolkeY[i]);
+            wolke[i].x += Math.random();
         }
         for (let i = 0; i < skier.length; i++) {
             drawskier(skier[i]);
@@ -145,30 +151,34 @@ var Aufgabe4;
         crc2.closePath();
     }
     //Funktion für Schnee
-    function drawSnowflake(_x, _y) {
+    function drawSnowflake(_schnee) {
+        _schnee.x += _schnee.dx;
+        _schnee.y += _schnee.dy;
         crc2.beginPath();
-        crc2.arc(_x, _y, 4, 0, 3 * Math.PI);
+        crc2.arc(_schnee.x, _schnee.y, 4, 0, 3 * Math.PI);
         crc2.fillStyle = "#fff";
         crc2.fill();
         crc2.closePath();
     }
     //Funktion für Wolken
-    function drawwolke(_x, _y) {
+    function drawwolke(_wolke) {
+        _wolke.x += _wolke.dx;
+        _wolke.y += _wolke.dy;
         crc2.fillStyle = "#ffffff";
         crc2.beginPath();
-        crc2.arc(_x, _y, 30, 0, 2 * Math.PI);
+        crc2.arc(_wolke.x, _wolke.y, 30, 0, 2 * Math.PI);
         crc2.fill();
         crc2.beginPath();
-        crc2.arc(_x, _y, 40, 0, 2 * Math.PI);
+        crc2.arc(_wolke.x, _wolke.y, 40, 0, 2 * Math.PI);
         crc2.fill();
         crc2.beginPath();
-        crc2.arc(_x, _y, 30, 0, 2 * Math.PI);
+        crc2.arc(_wolke.x, _wolke.y, 30, 0, 2 * Math.PI);
         crc2.fill();
     }
     //Funktion für Skier 
     function drawskier(_skier) {
         _skier.x += _skier.dx;
-        _skier.y += _skier.dy; // damit sich Skifahrer bewegen | um andere Bewegungsmuster zu finden
+        _skier.y += _skier.dy; // um andere Bewegungsmuster zu finden 
         crc2.fillStyle = _skier.color;
         crc2.fillRect(_skier.x, _skier.y, 10, -15);
         crc2.beginPath();
@@ -179,5 +189,5 @@ var Aufgabe4;
         crc2.lineTo(_skier.x + 40, _skier.y + 10);
         crc2.stroke();
     }
-})(Aufgabe4 || (Aufgabe4 = {}));
-//# sourceMappingURL=Skipiste.js.map
+})(Aufgabe5 || (Aufgabe5 = {}));
+//# sourceMappingURL=main.js.map
