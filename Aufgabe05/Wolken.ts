@@ -8,7 +8,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 
 namespace Aufgabe5 {
-    export class wolke {
+    export class wolken {
         x: number;
         y: number;
 
@@ -17,10 +17,7 @@ namespace Aufgabe5 {
             this.y = _y;
         }
 
-        update(): void {
-            this.move();
-            this.draw();
-        }
+        
 
         move(): void {
             if (this.x >= 800) {
@@ -30,17 +27,22 @@ namespace Aufgabe5 {
         }
 
         // (Funktion für Wolken)
-        drawwolke: void {
+        draw(): void {
             crc2.fillStyle = "#ffffff";
             crc2.beginPath();
-            crc2.arc(_wolke.x, _wolke.y, 30, 0, 2 * Math.PI);
+            crc2.arc(this.x, this.y, 30, 0, 2 * Math.PI);
             crc2.fill();
             crc2.beginPath();
-            crc2.arc(_wolke.x, _wolke.y, 40, 0, 2 * Math.PI);
+            crc2.arc(this.x, this.y, 40, 0, 2 * Math.PI);
             crc2.fill();
             crc2.beginPath();
-            crc2.arc(_wolke.x, _wolke.y, 30, 0, 2 * Math.PI);
+            crc2.arc(this.x, this.y, 30, 0, 2 * Math.PI);
             crc2.fill();
             }
+        
+        update(): void {
+            this.move();
+            this.draw();
+        }
         }
     }

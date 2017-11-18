@@ -13,7 +13,7 @@ namespace Aufgabe5 {
     let canvas: HTMLCanvasElement;              // variable Allgemein/zentral GLOBAL von allen Funktionen abrufbar (Kiste in großem Raum)
     console.log(canvas);
 
-    let crc2: CanvasRenderingContext2D;        // " "
+    export let crc2: CanvasRenderingContext2D;        // " "
     console.log(crc2);
 
 
@@ -27,8 +27,10 @@ namespace Aufgabe5 {
 
 
     function canvasInput(): void {
+        
         canvas = document.getElementsByTagName("canvas")[0]; //Var canvas wird in der funktion aufgerufen 
         crc2 = canvas.getContext("2d"); //Aufruf crc2 variable in der Funktion 
+        
         // Hintergrund 
         crc2.fillStyle = "#6495ED";
         crc2.fillRect(0, 0, 800, 600);
@@ -88,24 +90,27 @@ namespace Aufgabe5 {
         }
 
         
-        // fallende Schneeflocken
-        for (let i: number = 0; i < 600; i++) { //600 Schneeflocken
-            let s: schnee = new schnee(Math.random() * 800, Math.random() * 600);
-
-            schneeflocken[i] = s;
-        }
+        
 
         
         // bewegende Wolken
         for (let i: number = 0; i < 3; i++) {
-            let s: wolke = new wolke(Math.random() * 800 + 0, Math.random() * 50 + i * 200, Math.random() * 600 + 0);
+            let s: wolken = new wolken (Math.random() * 50 + i * 200, Math.random() * 100 + 0);
+            wolke[i] = s;
+        }
+        
+        for (let i: number = 0; i < 3; i++) {
+            let s: skifahrer = new skifahrer(Math.random() * 100 + 10, Math.random() * 200 + 195, "hsl(" + Math.random() * 360 + ", 100%, 50%)");
+            skier[i] = s;
+        }
+        
+        for (let i: number = 0; i < 800; i++) {
+            let s: schneeflocken = new schneeflocken(Math.random() * 800 + 0, Math.random() * 600 + 0);
+            
+            schnee[i] = s;
         }
 
         
-        // Skier 
-        for (let i: number = 0; i < 4; i++) {
-            let s: skier = new skier(Math.random() * 100 + 10, Math.random() * 200 + 195, "hsl(" + Math.random() * 360 + ", 100%, 50%)");
-        }
 
         image = crc2.getImageData(0, 0, 800, 600);      //Bild in Variable speichern
 
@@ -123,27 +128,30 @@ namespace Aufgabe5 {
         crc2.putImageData(image, 0, 0);     // Hintergrundbild einsetzen
 
 
-        for (let i: number = 0; i < schneeflocken.length; i++) {
-            let s: schnee = schneeflocken[i];
-
-            s.update();
-        }
+        
 
 
          for (let i: number = 0; i < wolke.length; i++) {
-             let s: wolke = wolken[i];
+             let s: wolken = wolke[i];
+
+             s.update();
+         }
+        
+        for (let i: number = 0; i < wolke.length; i++) {
+             let s: skifahrer = skier[i];
+
+             s.update();
+         }
+        
+        for (let i: number = 0; i < wolke.length; i++) {
+             let s: schneeflocken = schnee[i];
 
              s.update();
          }
 
+           
 
-         for (let i: number = 0; i < skier.length; i++) {
-              let s: skier = skiefahrer[i];
-
-              s.update();
-          }
-
-    window.setTimeout(animate, 15);
+    window.setTimeout(animate, 15);      // animate wird alle 15ms wiederholt 
 
 }
 
