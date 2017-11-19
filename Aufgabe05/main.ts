@@ -99,7 +99,7 @@ namespace Aufgabe5 {
             wolke[i] = s;
         }
         
-        for (let i: number = 0; i < 8; i++) {
+        for (let i: number = 0; i < 5; i++) {
             let s: skifahrer = new skifahrer(Math.random() * 100 + 10, Math.random() * 200 + 195, "hsl(" + Math.random() * 360 + ", 100%, 50%)");
             skier[i] = s;
         }

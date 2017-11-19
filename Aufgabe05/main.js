@@ -80,7 +80,7 @@ var Aufgabe5;
             let s = new Aufgabe5.wolken(Math.random() * 50 + i * 200, Math.random() * 100 + 0);
             wolke[i] = s;
         }
-        for (let i = 0; i < 8; i++) {
+        for (let i = 0; i < 5; i++) {
             let s = new Aufgabe5.skifahrer(Math.random() * 100 + 10, Math.random() * 200 + 195, "hsl(" + Math.random() * 360 + ", 100%, 50%)");
             skier[i] = s;
         }
