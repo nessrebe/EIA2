@@ -99,12 +99,12 @@ namespace Aufgabe5 {
             wolke[i] = s;
         }
         
-        for (let i: number = 0; i < 3; i++) {
+        for (let i: number = 0; i < 8; i++) {
             let s: skifahrer = new skifahrer(Math.random() * 100 + 10, Math.random() * 200 + 195, "hsl(" + Math.random() * 360 + ", 100%, 50%)");
             skier[i] = s;
         }
         
-        for (let i: number = 0; i < 800; i++) {
+        for (let i: number = 0; i < 500; i++) {
             let s: schneeflocken = new schneeflocken(Math.random() * 800 + 0, Math.random() * 600 + 0);
             
             schnee[i] = s;
@@ -137,13 +137,13 @@ namespace Aufgabe5 {
              s.update();
          }
         
-        for (let i: number = 0; i < wolke.length; i++) {
+        for (let i: number = 0; i < skier.length; i++) {
              let s: skifahrer = skier[i];
 
              s.update();
          }
         
-        for (let i: number = 0; i < wolke.length; i++) {
+        for (let i: number = 0; i < schnee.length; i++) {
              let s: schneeflocken = schnee[i];
 
              s.update();
