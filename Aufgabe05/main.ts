@@ -1,12 +1,12 @@
 /*  
-Aufgabe: Aufgabe 5
+Aufgabe: Aufgabe 6
 Name: Rebecca Neß
 Matrikel: 256154
-Datum: 15.11.2017
+Datum: 24.11.2017
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-namespace Aufgabe5 {
+namespace Aufgabe6 {
 
     window.addEventListener("load", canvasInput);  // Funktion canvasInput beginnt wenn Seite vollständig geladen hat 
 
@@ -89,21 +89,19 @@ namespace Aufgabe5 {
             drawTree(Math.floor(Math.random() * (300 - 15 + 1) + 15), Math.floor(Math.random() * (570 - 250 + 1) + 250), crc2);
         }
 
-        
-        
-
-        
         // bewegende Wolken
         for (let i: number = 0; i < 3; i++) {
             let s: wolken = new wolken (Math.random() * 50 + i * 200, Math.random() * 100 + 0);   // NEW: verbindung zum Wolken.ts, greift auf Informationen zu 
             wolke[i] = s;
         }
         
+        // Skier
         for (let i: number = 0; i < 5; i++) {
             let s: skifahrer = new skifahrer(Math.random() * 100 + 10, Math.random() * 200 + 195, "hsl(" + Math.random() * 360 + ", 100%, 50%)");
             skier[i] = s;
         }
         
+        // Schneeflocken 
         for (let i: number = 0; i < 500; i++) {
             let s: schneeflocken = new schneeflocken(Math.random() * 800 + 0, Math.random() * 600 + 0);
             schnee[i] = s;
@@ -127,7 +125,7 @@ namespace Aufgabe5 {
         crc2.putImageData(image, 0, 0);     // Hintergrundbild einsetzen
 
 
-        
+     
 
 
          for (let i: number = 0; i < wolke.length; i++) {

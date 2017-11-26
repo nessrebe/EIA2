@@ -1,27 +1,25 @@
 /*  
-Aufgabe: Aufgabe 5
+Aufgabe: Aufgabe 6
 Name: Rebecca Neß
 Matrikel: 256154
 Datum: 15.11.2017
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-namespace Aufgabe5 {
+namespace Aufgabe6 {
 
     window.addEventListener("load", canvasInput);  // Funktion canvasInput beginnt wenn Seite vollständig geladen hat 
 
     let canvas: HTMLCanvasElement;              // variable Allgemein/zentral GLOBAL von allen Funktionen abrufbar (Kiste in großem Raum)
     console.log(canvas);
 
-    export let crc2: CanvasRenderingContext2D;        // " "
+    export let crc2: CanvasRenderingContext2D; 
+           
     console.log(crc2);
 
 
-    //Arrays 
-    let skier: skifahrer[] = [];              // Variable die das Interface "skifahrer" aufruft 
-    let schnee: schneeflocken[] = [];
-    let wolke: wolken[] = [];
-
+    //Arrays (Assoziatives Array)
+    let superclass: MovingShape [] = [];
 
     let image: ImageData;   //ImageData anstatt "any" / Ausgabe Hintergrundbild
 
@@ -82,34 +80,30 @@ namespace Aufgabe5 {
         crc2.strokeStyle = "#000";
         crc2.stroke();
 
-
         /////////Start Schleif    
         // Trees
         for (var i: number = 1; i < 8; i++) {
             drawTree(Math.floor(Math.random() * (300 - 15 + 1) + 15), Math.floor(Math.random() * (570 - 250 + 1) + 250), crc2);
         }
 
-        
-        
-
-        
         // bewegende Wolken
         for (let i: number = 0; i < 3; i++) {
             let s: wolken = new wolken (Math.random() * 50 + i * 200, Math.random() * 100 + 0);   // NEW: verbindung zum Wolken.ts, greift auf Informationen zu 
-            wolke[i] = s;
+            superclass.push(s);
         }
         
+        // Skier
         for (let i: number = 0; i < 5; i++) {
             let s: skifahrer = new skifahrer(Math.random() * 100 + 10, Math.random() * 200 + 195, "hsl(" + Math.random() * 360 + ", 100%, 50%)");
-            skier[i] = s;
+            superclass.push(s);
         }
         
+        // Schneeflocken 
         for (let i: number = 0; i < 500; i++) {
             let s: schneeflocken = new schneeflocken(Math.random() * 800 + 0, Math.random() * 600 + 0);
-            schnee[i] = s;
+            superclass.push(s);
         }
 
-        
 
         image = crc2.getImageData(0, 0, 800, 600);      //Bild in Variable speichern
 
@@ -125,30 +119,7 @@ namespace Aufgabe5 {
         console.log("Timeout");
         crc2.clearRect(0, 0, 800, 600);     // Hintergrundbild löschen
         crc2.putImageData(image, 0, 0);     // Hintergrundbild einsetzen
-
-
-        
-
-
-         for (let i: number = 0; i < wolke.length; i++) {
-             let s: wolken = wolke[i];
-
-             s.update();
-         }
-        
-        for (let i: number = 0; i < skier.length; i++) {
-             let s: skifahrer = skier[i];
-
-             s.update();
-         }
-        
-        for (let i: number = 0; i < schnee.length; i++) {
-             let s: schneeflocken = schnee[i];
-
-             s.update();
-         }
-
-           
+       
 
     window.setTimeout(animate, 15);      // animate wird alle 15ms wiederholt 
 
@@ -156,15 +127,22 @@ namespace Aufgabe5 {
 
 
 //Funktion für Trees (Zeichung)
-function drawTree(_x: number, _y: number, crc2: any): void {
-    crc2.beginPath();
-    crc2.moveTo(_x - 14, _y);
-    crc2.lineTo(_x + 26, _y);
-    crc2.lineTo(_x + 4, _y - 60);
-    crc2.lineTo(_x - 14, _y);
-    crc2.fillStyle = "#228B22";
-    crc2.fill();
-    crc2.closePath();
-}
+    function drawTree(_x: number, _y: number, crc2: any): void {
+            crc2.beginPath();
+            crc2.moveTo(_x - 14, _y);
+            crc2.lineTo(_x + 26, _y);
+            crc2.lineTo(_x + 4, _y - 60);
+            crc2.lineTo(_x - 14, _y);
+            crc2.fillStyle = "#228B22";
+            crc2.fill();
+            crc2.closePath();
+        }
+    
+    
+        for (let i: number = 0; i < superclass.length; i++) {
+        let s: MovingShape = superclass[i];
+            
+            s.update();
+        }   
 
 }

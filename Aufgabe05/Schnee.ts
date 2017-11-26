@@ -1,13 +1,13 @@
 /*  
-Aufgabe: Aufgabe 5
+Aufgabe: Aufgabe 6
 Name: Rebecca Neß
 Matrikel: 256154
-Datum: 15.11.2017
+Datum: 24.11.2017
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
 
-namespace Aufgabe5 {
+namespace Aufgabe6 {
 	
 	export class schneeflocken {
 		x: number;

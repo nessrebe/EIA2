@@ -12,7 +12,7 @@ var Aufgabe5;
     let canvas; // variable Allgemein/zentral GLOBAL von allen Funktionen abrufbar (Kiste in großem Raum)
     console.log(canvas);
     console.log(Aufgabe5.crc2);
-    //Arrays 
+    //Arrays (Assoziatives Array)
     let skier = []; // Variable die das Interface "skifahrer" aufruft 
     let schnee = [];
     let wolke = [];

@@ -1,13 +1,13 @@
 /*
-Aufgabe: Aufgabe 5
+Aufgabe: Aufgabe 6
 Name: Rebecca Neß
 Matrikel: 256154
-Datum: 15.11.2017
+Datum: 24.11.2017
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-var Aufgabe5;
-(function (Aufgabe5) {
+var Aufgabe6;
+(function (Aufgabe6) {
     class skifahrer {
         constructor(_x, _y, _color) {
             this.x = _x;
@@ -25,21 +25,21 @@ var Aufgabe5;
         }
         // (Funktion für Skier)
         draw() {
-            Aufgabe5.crc2.fillStyle = this.color;
-            Aufgabe5.crc2.fillRect(this.x, this.y, 10, -15);
-            Aufgabe5.crc2.beginPath();
-            Aufgabe5.crc2.arc(this.x + 10, this.y - 25, 5, 0, 2 * Math.PI);
-            Aufgabe5.crc2.fill();
-            Aufgabe5.crc2.beginPath();
-            Aufgabe5.crc2.moveTo(this.x - 30, this.y - 15);
-            Aufgabe5.crc2.lineTo(this.x + 40, this.y + 10);
-            Aufgabe5.crc2.stroke();
+            Aufgabe6.crc2.fillStyle = this.color;
+            Aufgabe6.crc2.fillRect(this.x, this.y, 10, -15);
+            Aufgabe6.crc2.beginPath();
+            Aufgabe6.crc2.arc(this.x + 10, this.y - 25, 5, 0, 2 * Math.PI);
+            Aufgabe6.crc2.fill();
+            Aufgabe6.crc2.beginPath();
+            Aufgabe6.crc2.moveTo(this.x - 30, this.y - 15);
+            Aufgabe6.crc2.lineTo(this.x + 40, this.y + 10);
+            Aufgabe6.crc2.stroke();
         }
         update() {
             this.move();
             this.draw();
         }
     }
-    Aufgabe5.skifahrer = skifahrer;
-})(Aufgabe5 || (Aufgabe5 = {}));
+    Aufgabe6.skifahrer = skifahrer;
+})(Aufgabe6 || (Aufgabe6 = {}));
 //# sourceMappingURL=Skier.js.map
