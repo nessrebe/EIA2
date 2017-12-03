@@ -8,19 +8,19 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 var StudiVZ;
 (function (StudiVZ) {
-    var students = [];
-    var stop = false;
+    let students = [];
+    let stop = false;
     while (!stop) {
-        var action = prompt("Datensatz anlegen (n), abfragen(a) oder Programm beenden (s)\nn,a oder s eingeben");
+        let action = prompt("Datensatz anlegen (n), abfragen(a) oder Programm beenden (s)\nn,a oder s eingeben");
         switch (action) {
             case "n":
             case "N":
-                var input = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Name, Vorname, Alter, Geschlecht (0 oder 1) und Kommentar");
+                let input = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Name, Vorname, Alter, Geschlecht (0 oder 1) und Kommentar");
                 alert(saveData(input));
                 break;
             case "a":
             case "A":
-                var Matrikelnummer = parseInt(prompt("Eingabe Matrikelnummer"));
+                let Matrikelnummer = parseInt(prompt("Eingabe Matrikelnummer"));
                 alert(queryData(Matrikelnummer));
                 break;
             case "s":
