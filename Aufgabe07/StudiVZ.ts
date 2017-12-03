@@ -43,42 +43,44 @@ namespace StudiVZ {
     }
 
     function saveData(_input: string): string {
-        let dataArray: string[] = _input.split(",");
-        let studentData: StudentData = {
-            Matrikelnummer: parseInt(dataArray[0]),          
-            Name: dataArray[1],                   
-            Vorname: dataArray[2],
-            Alter: parseInt(dataArray[3]),
-            Geschlecht: parseInt(dataArray[4]) == 0,
-            Kommentar: dataArray[5]
-            };
+        let splitted: string[] = _input.split(",");
 
-        students.push(studentData);
-
-        let Geschlecht: string;
-        if (parseInt(dataArray[4]) == 0) {
-            Geschlecht = "weiblich";
+        if (parseInt(splitted[0]) == NaN) {
+            return "Matrikelnummer keine Nummer";
         }
         
-        else {
-            Geschlecht = "männlich";
-        }
+        
+        var geschlecht: boolean = parseInt(splitted[4]) == 1;   
 
-        return "Deine Daten:\n" + "\nMatrikelnummer: " + studentData.Matrikelnummer + "\nName: " + studentData.name + studentData.vorname + "\nAlter: " + studentData.alter + "\nGeschlecht: " + geschlecht + "\nKommentar: " + studentData.kommentar;
-        }
+        let student: StudentData = {
+            Matrikelnummer: parseInt(splitted[0]),
+            Name: splitted[1],
+            Vorname: splitted[2],
+            Alter: parseInt(splitted[3]),
+            Geschlecht: geschlecht,
+            Kommentar: splitted[5]
+        };
 
+        students.push(student);
+
+
+        return "Eingegebene Daten: " + "\nMatrikelnummer: " + student.Matrikelnummer + "\nName: " + student.Name + "\nVorname: " + student.Vorname + "\nAlter: " + student.Alter + "\nGeschlecht: " + student.Geschlecht + "\nKommentar: " + student.Kommentar;
     }
 
+    
     function queryData(_matrikel: number): string {
         
-            if (Students[i].matrikel == _matrikel) {
-                let Geschlecht: string = Students[i].Geschlecht ? "weiblich" : "männlich";
-                return "Daten zur Matrikelnummer: " + Students[i].Matrikelnummer + "\n\nName: " + students[i].name + students[i].vorname + "\nAlter: " + students[i].alter + "\nGeschlecht: " + geschlecht + "\nKommentar: " + students[i].kommentar;
+            for (let i: number = 0; i < students.length; i++) {
+            
+            if (students[i].Matrikelnummer == _matrikel) {
+                return "Student: " + "\nMatrikelnummer: " + students[i].Matrikelnummer + "\nName: " + students[i].Name + "\nVorname: " + students[i].Vorname + "\nAlter: " + students[i].Alter + "\nGeschlecht: " + students[i].Geschlecht + "\nKommentar: " + students[i].Kommentar;
             }
+            
+                else {
+                return "Matrikelnummer nicht gespeichert";
+                }
+        }
 
-            else {
-                return "Matrikelnummer nicht in Datenbank vorhanden";
-            }
-     }
-
-
+        return;
+    }
+}
