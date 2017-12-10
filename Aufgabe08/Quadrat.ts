@@ -29,7 +29,7 @@ namespace Aufgabe8 {
         
     function  init(_x: number, _y: number, _color: number): void {
         
-        let box: HTMLDivElement = document.createElement("div");
+        let box: HTMLDivElement = document.createElement("div"); // erzeugt div (Html innerhalb ts - dynamisch)
         
         box.style.width = "50px";
         box.style.height = "50px";
