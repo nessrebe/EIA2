@@ -23,7 +23,7 @@ namespace Aufgabe8 {
             // zufällige Boxen werden erzeugt und die function init wird aufgerufen 
             else {
                 for (let i: number = 0; i < parseInt(Anzahl); i++) {    // i kleiner als eingabe 
-                    init(Math.random() * window.innerWidth - 50, Math.random() * window.innerHeight - 50, Math.random() * 360);
+                    init(Math.random() * window.innerWidth - 50, Math.random() * window.innerHeight - 50, Math.random() * 360, 70, 70);
                     }
        }
         }
@@ -32,13 +32,13 @@ namespace Aufgabe8 {
         
         let box: HTMLDivElement = document.createElement("div"); // erzeugt div (Html innerhalb ts = dynamisch)
         
-        div.style.width = _width + "px";
-        div.style.height = _height + "px";
+        box.style.width = _width + "px";
+        box.style.height = _height + "px";
         
-        div.style.marginLeft = _x + "px";
-        div.style.marginTop = _y + "px";
+        box.style.marginLeft = _x + "px";
+        box.style.marginTop = _y + "px";
         
-        div.style.backgroundColor = _color;
+        box.style.backgroundColor = "hsl("+ _color + ", 100%, 50%)";
         
         document.body.appendChild(box);   //html div ELement wird in Code eingefügt
      }
