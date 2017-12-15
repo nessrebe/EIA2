@@ -9,19 +9,20 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 
 namespace Aufgabe8 {
     
-    window.addEventListener("load", eingabe);
+    window.addEventListener("load", eingabe); // Seite wird geladen/ausgeführt wenn "eingabe" function vollständig geladen hat 
     
     function eingabe() {
         // "prompt" erzeugt das Eingabefester welches für den Nutzer sichtbar ist 
         let Anzahl: string = prompt("Geben Sie eine Zahl zwischen 10 und 100 an.")
+        // parseInt konvertiert das erste Argument zu einem String, analysiert diesen und gibt eine ganze Zahl oder NaN zurück
         // Die Number.isNaN() Methode stellt fest, ob der Übergabewert NaN (Not-a-Number) ist und der Typ des Parameters Anzahl ist
-        if (Number.isNaN(parseInt(Anzahl)) || parseInt(Anzahl) < 10 || parseInt(Anzahl) > 100) {    
+        if (Number.isNaN(parseInt(Anzahl)) || parseInt(Anzahl) < 10 || parseInt(Anzahl) > 100) {     // || logisches ODER  
             alert("Eingabe ist nicht korrekt");
             eingabe();
             }
             // zufällige Boxen werden erzeugt und die function init wird aufgerufen 
             else {
-                for (let i: number = 0; i < parseInt(Anzahl); i++) {
+                for (let i: number = 0; i < parseInt(Anzahl); i++) {    // i kleiner als eingabe 
                     init(Math.random() * window.innerWidth - 50, Math.random() * window.innerHeight - 50, Math.random() * 360);
                     }
        }
@@ -29,7 +30,7 @@ namespace Aufgabe8 {
         
     function  init(_x: number, _y: number, _color: number, _width: number, _height: number): void {
         
-        let box: HTMLDivElement = document.createElement("div"); // erzeugt div (Html innerhalb ts - dynamisch)
+        let box: HTMLDivElement = document.createElement("div"); // erzeugt div (Html innerhalb ts = dynamisch)
         
         div.style.width = _width + "px";
         div.style.height = _height + "px";
