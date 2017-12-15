@@ -30,8 +30,8 @@ var Aufgabe8;
         box.style.backgroundColor = "hsl(" + _color + ", 100%, 50%)";
         // Verschiebung x und y Achse 
         box.style.left = _x + "px";
-        box.style.left = _y + "px";
-        document.body.appendChild(box);
+        box.style.right = _y + "px";
+        document.body.appendChild(box); //html div ELement wird in Code eingefügt
     }
 })(Aufgabe8 || (Aufgabe8 = {}));
 //# sourceMappingURL=Quadrat.js.map

@@ -27,17 +27,19 @@ namespace Aufgabe8 {
        }
         }
         
-    function  init(_x: number, _y: number, _color: number): void {
+    function  init(_x: number, _y: number, _color: number, _width: number, _height: number): void {
         
         let box: HTMLDivElement = document.createElement("div"); // erzeugt div (Html innerhalb ts - dynamisch)
         
-        box.style.width = "50px";
-        box.style.height = "50px";
-        box.style.backgroundColor = "hsl(" + _color + ", 100%, 50%)";
-        // Verschiebung x und y Achse 
-        box.style.left = _x + "px";
-        box.style.left = _y + "px";
-        document.body.appendChild(box);   
+        div.style.width = _width + "px";
+        div.style.height = _height + "px";
+        
+        div.style.marginLeft = _x + "px";
+        div.style.marginTop = _y + "px";
+        
+        div.style.backgroundColor = _color;
+        
+        document.body.appendChild(box);   //html div ELement wird in Code eingefügt
      }
         
  
