@@ -32,10 +32,10 @@ namespace Aufgabe8 {
         
         let box: HTMLDivElement = document.createElement("div"); // erzeugt div (Html innerhalb ts = dynamisch)
         
-        box.style.width = _width + "px";
+        box.style.width = _width + "px";                    // wird von oben ("else"...) übergeben
         box.style.height = _height + "px";
         
-        box.style.marginLeft = _x + "px";
+        box.style.marginLeft = _x + "px";                   // " " 
         box.style.marginTop = _y + "px";
         
         box.style.backgroundColor = "hsl("+ _color + ", 100%, 50%)";

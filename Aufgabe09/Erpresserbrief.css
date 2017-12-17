@@ -1,0 +1,14 @@
+* {
+	font-family: "Helvetics", serif;
+}
+
+p {
+	font-family: "Helvetics", serif;
+	font-size: 2em;
+	text-align: center;
+}
+
+div {
+	float: left;
+	margin: auto;
+}

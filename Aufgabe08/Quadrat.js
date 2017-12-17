@@ -26,9 +26,9 @@ var Aufgabe8;
     }
     function init(_x, _y, _color, _width, _height) {
         let box = document.createElement("div"); // erzeugt div (Html innerhalb ts = dynamisch)
-        box.style.width = _width + "px";
+        box.style.width = _width + "px"; // wird von oben ("else"...) übergeben
         box.style.height = _height + "px";
-        box.style.marginLeft = _x + "px";
+        box.style.marginLeft = _x + "px"; // " " 
         box.style.marginTop = _y + "px";
         box.style.backgroundColor = "hsl(" + _color + ", 100%, 50%)";
         document.body.appendChild(box); //html div ELement wird in Code eingefügt
