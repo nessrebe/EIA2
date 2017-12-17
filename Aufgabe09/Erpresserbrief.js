@@ -32,15 +32,15 @@ var A9;
             }
         }
     }
-    //divs mit chosenletters
+    //divs/ BOXEN mit den letters
     function drawBox(_buchstaben) {
         let div = document.createElement("div"); // html div Element erstellt 
         div.innerText = _buchstaben;
         div.style.backgroundColor = "#BC8F8F";
-        div.style.width = "35px";
-        div.style.height = "35px";
-        div.style.marginLeft = "2px";
-        div.style.marginRight = "2px";
+        div.style.width = "40px";
+        div.style.height = "40px";
+        div.style.marginLeft = "3px";
+        div.style.marginRight = "3px";
         div.style.fontSize = "30px";
         div.style.textAlign = "center";
         div.id = _buchstaben; //ID erstellt um divs zu vergleichen
@@ -48,13 +48,14 @@ var A9;
         div.addEventListener("click", handleClick);
         document.body.appendChild(div);
     }
+    // Brief BOX
     function drawBrief() {
         let chosenletter = document.createElement("div");
         chosenletter.style.backgroundColor = "#F0F8FF";
-        chosenletter.style.width = "800px";
-        chosenletter.style.height = "300px";
-        chosenletter.style.marginTop = "10px";
-        chosenletter.style.marginRight = "2px";
+        chosenletter.style.width = "1000px";
+        chosenletter.style.height = "350px";
+        chosenletter.style.marginTop = "12px";
+        chosenletter.style.marginRight = "3px";
         chosenletter.addEventListener("click", setchosenletters);
         document.body.appendChild(chosenletter);
     }
@@ -65,8 +66,8 @@ var A9;
         box.style.backgroundColor = "#F0F8FF";
         box.style.width = "35px";
         box.style.height = "35px";
-        box.style.marginLeft = "2px";
-        box.style.marginRight = "2px";
+        box.style.marginLeft = "3px";
+        box.style.marginRight = "3px";
         box.style.fontSize = "30px";
         box.style.textAlign = "center";
         box.style.position = "absolute";
