@@ -1,0 +1,78 @@
+* {
+	font-family: 'Open Sans', sans-serif;
+}
+
+body {
+	font-size: 1em;
+	width: 100%;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+
+section{
+	padding: 5%;
+	margin: 0;
+}
+
+h1 {
+	color: #fbba3b;
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 1em;
+}
+
+input::invalid {
+	background: #FA5858;
+}
+
+label::after {
+	display: block;
+}
+
+input {
+	margin: 0.5em;
+}
+
+#warenkorb{
+	position: relative;
+	top: 0.5em;
+	height: 2em;
+	width: 2em;
+}
+
+button {
+	background-color: darkgreen;
+	color: white;
+    padding: 0.3em;
+    text-align: center;
+    display: inline-block;
+    font-size: 1em;
+    margin: 0.02em;
+    cursor: pointer;
+}
+
+#daten input {
+	display: block;
+	height: 1.5em;
+	width: 75%;
+	font-size: 1.25em;
+	padding: 0;
+}
+
+#zusammenfassung {
+	position: fixed;
+	right: 0em;
+	top: 0em;
+	color: #F6FDE6;
+	padding: 1em;
+	border: none;
+	font-size: 0.8em;
+}
+
+.wk {
+	font-size: 1.2em;
+}
+
+
