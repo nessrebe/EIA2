@@ -243,7 +243,7 @@ var A10;
         korb.style.width = "30%";
         korb.style.height = "auto";
         korb.style.backgroundColor = "#9BCD9B";
-        korb.innerHTML = "<p class='wk'>Dein Warenkorb</p> <br>"; //<span>  
+        korb.innerHTML = "<p class='wk'>Dein Warenkorb</p> <br>";
         korb.innerHTML += "" + basketBaumart[0] + " " + basketBaumart[1] + "€ <br>";
         korb.innerHTML += basketHalter[0] + ": " + basketHalter[1] + "€ <br>";
         korb.innerHTML += "" + basketBeleuchtung[0] + ": " + basketBeleuchtung[1] + "€ <br>";
