@@ -44,7 +44,7 @@ namespace A10 {
                 var label4 = document.createElement("label");
                 label4.id = "label" + i;                        
                 label4.htmlFor = radioB3.id;
-                label4.innerText = posten[i].name;             //innerText
+                label4.innerText = posten[i].name;             //innerText: zieht sich information aus Schublade posten[i]
                 baumart.appendChild(label4);
                 
                 //Stepper
@@ -185,8 +185,6 @@ namespace A10 {
         ort.required = true;
         daten.appendChild(ort);
 
-        
-
         mail = document.createElement("input");
         mail.type = "email";
         mail.name = "DatenMail";
@@ -195,14 +193,14 @@ namespace A10 {
         daten.appendChild(mail);
 
         
-        //Lieferoptionen:
+        //Lieferoptionen
         let lieferopt: HTMLDivElement = <HTMLDivElement>document.getElementById("lieferoptionen");
         for (let i: number = 0; i < posten.length; i++) {
             if (posten[i].art == "Lieferung") {
                 //Radiobutton erstellen
                 var radioB2: HTMLInputElement = document.createElement("input");
                 radioB2.type = "radio";
-                radioB2.name = "radioGroupLieferoptionen";
+                radioB2.name = "radioGroupLieferoptionen"; // nur eine Option kann gewählt werden da eine Gruppe
                 radioB2.value = "radio2." + i;
                 radioB2.id = "radio2." + i;
                 lieferopt.appendChild(radioB2);
@@ -218,7 +216,7 @@ namespace A10 {
             }
         }
 
-        //Button:
+        
         //Submit Button zur Überprüfung erstellen
         let button: HTMLDivElement = <HTMLDivElement>document.getElementById("button");
         let submit: HTMLButtonElement = document.createElement("button");
@@ -230,7 +228,7 @@ namespace A10 {
         submit.style.background = "#9BCD9B"
         submit.innerText = "Finish";
         submit.addEventListener("mousedown", handleMouseDown);
-        button.appendChild(submit);                                  // submit
+        button.appendChild(submit);                                  
     }
 
     function warenkorb(_event: Event): void {
@@ -286,7 +284,7 @@ namespace A10 {
         korb.style.width = "30%";
         korb.style.height = "auto";
         korb.style.backgroundColor = "#9BCD9B";
-        korb.innerHTML = "<span class='wk'>Dein Warenkorb</span> <br>";
+        korb.innerHTML = "<p class='wk'>Dein Warenkorb</p> <br>";       //<span>  
         korb.innerHTML += "" + basketBaumart[0] + " " + basketBaumart[1] + "€ <br>";
         korb.innerHTML += basketHalter[0] + ": " + basketHalter[1] + "€ <br>";
         korb.innerHTML += "" + basketBeleuchtung[0] + ": " + basketBeleuchtung[1] + "€ <br>";
@@ -294,7 +292,7 @@ namespace A10 {
 
         gesamtpreis = parseFloat(basketBaumart[1]) + parseFloat(basketBeleuchtung[1]) + parseFloat(basketHalter[1]) + parseFloat(basketLieferopt[1]);
         for (let i: number = 0; i < stepper.length; i++) {
-            //Wenn anzahl nicht gleich 0 und die checkbox ausgewählt ist, dann......
+            //Wenn die Anzahl nicht gleich 0 und die checkbox ausgewählt ist, dann gesamt Preis von Schmuck und rechnet diesen dazu
             if (checkBoxes[i] != null && checkBoxes[i].checked == true) {
                 gesamtpreis += parseFloat(basketSchmuck[i][1]);//preis dazurechnen
                 korb.innerHTML += "" + basketSchmuck[i][0] + " " + basketSchmuck[i][1] + "€ <br>";
