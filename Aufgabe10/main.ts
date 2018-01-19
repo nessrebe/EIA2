@@ -22,7 +22,7 @@ namespace A10 {
 
     let basketBaumart: string[]= ["keine Baumart ausgewählt", "0"];
     let basketHalter: string[] = ["keiner ausgewählt", "0"];
-    let basketBeleuchtung: string[] = ["willst du deinen Baum leuchten lassen?" + b[0][1]];              
+    let basketBeleuchtung: string[] = [b[0][0] "willst du deinen Baum leuchten lassen?" + b[0][1]];              
     let basketSchmuck: string[][] = [];
     let basketLieferopt: string[] = ["keine Lieferoption ausgewählt", "0"];
 
@@ -58,7 +58,7 @@ namespace A10 {
                 stepper2.step = "1";
                 baumart.appendChild(stepper2);
                 var br: HTMLElement = document.createElement("br");
-                baumart.appendChild(br);
+                baumart.appendChild(br); 
             }
         }
 
@@ -276,8 +276,7 @@ namespace A10 {
             //Schmuck Warenkorb
             if (target.id == "check" + i || target.id == "stepper" + i) {
                 basketSchmuck[i] = [posten[i].name, "" + Math.round((posten[i].preis * parseInt(stepper[i].value)*100))/100];
-            }
-           
+            }  
         }
         
         let korb: HTMLDivElement = <HTMLDivElement>document.getElementById("zusammenfassung");
