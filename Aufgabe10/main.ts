@@ -249,8 +249,8 @@ namespace A10 {
             }
             
             //Baumart Warenkorb
-             if (target.id == "radio3."+i || target.id == "stepper2." + i) {
-                stepper2[i] = <HTMLInputElement>document.getElementById("stepper2." + i);
+             if (target.id == "radio3."+i || target.id == "stepper2." + i) {                            //target.id target.value sind Teile des eventListeners 
+                stepper2[i] = <HTMLInputElement>document.getElementById("stepper2." + i);               //target = variable mit information die vom eventListnener kommt 
                 checkBoxes2[i] = <HTMLInputElement>document.getElementById("check" + i);
                 basketBaumart[0] = posten[i].name;
                 basketBaumart[1] =  "" + (posten[i].preis * parseInt(stepper2[i].value));

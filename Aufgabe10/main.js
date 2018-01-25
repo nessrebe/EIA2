@@ -214,7 +214,7 @@ var A10;
             }
             //Baumart Warenkorb
             if (target.id == "radio3." + i || target.id == "stepper2." + i) {
-                stepper2[i] = document.getElementById("stepper2." + i);
+                stepper2[i] = document.getElementById("stepper2." + i); //target = variable mit information die vom eventListnener kommt 
                 checkBoxes2[i] = document.getElementById("check" + i);
                 basketBaumart[0] = A10.posten[i].name;
                 basketBaumart[1] = "" + (A10.posten[i].preis * parseInt(stepper2[i].value));

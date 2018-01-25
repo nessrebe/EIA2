@@ -22,7 +22,7 @@ namespace A11 {
 
     let basketBaumart: string[]= ["keine Baumart ausgewählt", "0"];
     let basketHalter: string[] = ["keiner ausgewählt", "0"];
-    let basketBeleuchtung: string[] = [b[0][0] + "willst du deinen Baum leuchten lassen?" + b[0][1]];              
+    let basketBeleuchtung: string[] = ["willst du deinen Baum leuchten lassen?"];              
     let basketSchmuck: string[][] = [];
     let basketLieferopt: string[] = ["keine Lieferoption ausgewählt", "0"];
 

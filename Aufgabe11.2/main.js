@@ -6,8 +6,8 @@ Datum: 12.01.2018
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-var A10;
-(function (A10) {
+var A11;
+(function (A11) {
     window.addEventListener("load", createElements);
     window.addEventListener("change", warenkorb);
     let name;
@@ -20,13 +20,13 @@ var A10;
     let label;
     let basketBaumart = ["keine Baumart ausgewählt", "0"];
     let basketHalter = ["keiner ausgewählt", "0"];
-    let basketBeleuchtung = [A10.b[0][0] + "willst du deinen Baum leuchten lassen?" + A10.b[0][1]];
+    let basketBeleuchtung = ["willst du deinen Baum leuchten lassen?"];
     let basketSchmuck = [];
     let basketLieferopt = ["keine Lieferoption ausgewählt", "0"];
     function createElements() {
         let baumart = document.getElementById("baumart");
-        for (let i = 0; i < A10.posten.length; i++) {
-            if (A10.posten[i].art == "Baumart") {
+        for (let i = 0; i < A11.posten.length; i++) {
+            if (A11.posten[i].art == "Baumart") {
                 //radiobutton erzeugen
                 var radioB3 = document.createElement("input");
                 radioB3.type = "radio"; //radio = Auswählknöpfchen, radiogroup eins kann ausgewählt werden 
@@ -38,7 +38,7 @@ var A10;
                 var label4 = document.createElement("label");
                 label4.id = "label" + i;
                 label4.htmlFor = radioB3.id;
-                label4.innerText = A10.posten[i].name; //innerText: zieht sich information aus Schublade posten[i]
+                label4.innerText = A11.posten[i].name; //innerText: zieht sich information aus Schublade posten[i]
                 baumart.appendChild(label4);
                 //Stepper
                 let stepper2 = document.createElement("input");
@@ -56,8 +56,8 @@ var A10;
         }
         //Halterung:
         let halterung = document.getElementById("halterung");
-        for (let i = 0; i < A10.posten.length; i++) {
-            if (A10.posten[i].art == "Halter") {
+        for (let i = 0; i < A11.posten.length; i++) {
+            if (A11.posten[i].art == "Halter") {
                 //Radiobutton erzeugen
                 var radioB = document.createElement("input");
                 radioB.type = "radio";
@@ -69,7 +69,7 @@ var A10;
                 label = document.createElement("label");
                 label.id = "label" + i;
                 label.htmlFor = radioB.id;
-                label.innerText = A10.posten[i].name;
+                label.innerText = A11.posten[i].name;
                 halterung.appendChild(label);
                 var br = document.createElement("br");
                 halterung.appendChild(br);
@@ -83,10 +83,10 @@ var A10;
         selectBox2.id = "selectBeleuchtung";
         beleuchtung.appendChild(selectBox2);
         //Auswahlmöglichkeiten erzeugen
-        for (let i = 0; i < A10.posten.length; i++) {
-            if (A10.posten[i].art == "Beleuchtung") {
+        for (let i = 0; i < A11.posten.length; i++) {
+            if (A11.posten[i].art == "Beleuchtung") {
                 var opt2 = document.createElement("option");
-                opt2.innerText = A10.posten[i].name;
+                opt2.innerText = A11.posten[i].name;
                 opt2.id = "option2." + i;
                 selectBox2.appendChild(opt2);
             }
@@ -94,8 +94,8 @@ var A10;
         //Dekoartikel:
         let schmuckartikel = document.getElementById("schmuckartikel");
         //Liste durch for Schleife erzeugen....für jedes Element:
-        for (let i = 0; i < A10.posten.length; i++) {
-            if (A10.posten[i].art == "Deko") {
+        for (let i = 0; i < A11.posten.length; i++) {
+            if (A11.posten[i].art == "Deko") {
                 //....eine Checkbox,...
                 var checkB = document.createElement("input");
                 checkB.type = "checkbox";
@@ -107,7 +107,7 @@ var A10;
                 var label2 = document.createElement("label");
                 label2.id = "label2." + i;
                 label2.htmlFor = checkB.id;
-                label2.innerText = A10.posten[i].name;
+                label2.innerText = A11.posten[i].name;
                 schmuckartikel.appendChild(label2);
                 //..und den Stepper erzeugen.
                 let stepper = document.createElement("input");
@@ -167,8 +167,8 @@ var A10;
         daten.appendChild(mail);
         //Lieferoptionen
         let lieferopt = document.getElementById("lieferoptionen");
-        for (let i = 0; i < A10.posten.length; i++) {
-            if (A10.posten[i].art == "Lieferung") {
+        for (let i = 0; i < A11.posten.length; i++) {
+            if (A11.posten[i].art == "Lieferung") {
                 //Radiobutton erstellen
                 var radioB2 = document.createElement("input");
                 radioB2.type = "radio";
@@ -180,7 +180,7 @@ var A10;
                 var label3 = document.createElement("label");
                 label3.id = "label3." + i;
                 label3.htmlFor = radioB2.id;
-                label3.innerText = A10.posten[i].name;
+                label3.innerText = A11.posten[i].name;
                 lieferopt.appendChild(label3);
                 var br = document.createElement("br");
                 lieferopt.appendChild(br);
@@ -206,9 +206,9 @@ var A10;
         let checkBoxes = [];
         let checkBoxes2 = [];
         let gesamtpreis = 0;
-        for (let i = 0; i < A10.posten.length; i++) {
+        for (let i = 0; i < A11.posten.length; i++) {
             //Schmuck Warenkorb
-            if (A10.posten[i].art == "Deko") {
+            if (A11.posten[i].art == "Deko") {
                 stepper[i] = document.getElementById("stepper" + i);
                 checkBoxes[i] = document.getElementById("check" + i);
             }
@@ -216,27 +216,27 @@ var A10;
             if (target.id == "radio3." + i || target.id == "stepper2." + i) {
                 stepper2[i] = document.getElementById("stepper2." + i);
                 checkBoxes2[i] = document.getElementById("check" + i);
-                basketBaumart[0] = A10.posten[i].name;
-                basketBaumart[1] = "" + (A10.posten[i].preis * parseInt(stepper2[i].value));
+                basketBaumart[0] = A11.posten[i].name;
+                basketBaumart[1] = "" + (A11.posten[i].preis * parseInt(stepper2[i].value));
             }
             //Halter Warenkorb
             if (target.id == "radio" + i) {
-                basketHalter[0] = A10.posten[i].name;
-                basketHalter[1] = "" + A10.posten[i].preis;
+                basketHalter[0] = A11.posten[i].name;
+                basketHalter[1] = "" + A11.posten[i].preis;
             }
             //Lieferoptionen Warenkorb
             if (target.id == "radio2." + i) {
-                basketLieferopt[0] = A10.posten[i].name;
-                basketLieferopt[1] = "" + A10.posten[i].preis;
+                basketLieferopt[0] = A11.posten[i].name;
+                basketLieferopt[1] = "" + A11.posten[i].preis;
             }
             //Beleuchtung Warenkorb
-            if (target.value == A10.posten[i].name && target.id == "selectBeleuchtung") {
-                basketBeleuchtung[0] = A10.posten[i].name;
-                basketBeleuchtung[1] = "" + A10.posten[i].preis;
+            if (target.value == A11.posten[i].name && target.id == "selectBeleuchtung") {
+                basketBeleuchtung[0] = A11.posten[i].name;
+                basketBeleuchtung[1] = "" + A11.posten[i].preis;
             }
             //Schmuck Warenkorb
             if (target.id == "check" + i || target.id == "stepper" + i) {
-                basketSchmuck[i] = [A10.posten[i].name, "" + Math.round((A10.posten[i].preis * parseInt(stepper[i].value) * 100)) / 100];
+                basketSchmuck[i] = [A11.posten[i].name, "" + Math.round((A11.posten[i].preis * parseInt(stepper[i].value) * 100)) / 100];
             }
         }
         let korb = document.getElementById("zusammenfassung");
@@ -276,5 +276,5 @@ var A10;
             document.body.appendChild(feedback);
         }
     }
-})(A10 || (A10 = {}));
+})(A11 || (A11 = {}));
 //# sourceMappingURL=main.js.map
