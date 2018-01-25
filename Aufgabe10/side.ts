@@ -34,17 +34,4 @@ namespace A10 {
         { art: "Lieferung", name: "Express-Lieferung", preis: 4.99 },
     ];
     
-    
-    export let b: string[][] = [];   //export: exportiert aus gegebener Datei, mach Klassen, Variablen, funktionen über Dateigrenzen hinweg nutzbar 
-    
-    for (var i: number = 0; i < posten.length; i++) {
-        
-
-        if (posten[i].art == "Beleuchtung") {
-           var temp: any = [posten[i].name, posten[i].preis]; 
-           b.push(temp);                 //Push Def. -> The push() method adds new items to the end of an array, and returns the new length.
-
-                           
-        }
-    }
 }

@@ -20,7 +20,7 @@ var A10;
     let label;
     let basketBaumart = ["keine Baumart ausgewählt", "0"];
     let basketHalter = ["keiner ausgewählt", "0"];
-    let basketBeleuchtung = [A10.b[0][0] + "willst du deinen Baum leuchten lassen?" + A10.b[0][1]];
+    let basketBeleuchtung = ["willst du deinen Baum leuchten lassen?"];
     let basketSchmuck = [];
     let basketLieferopt = ["keine Lieferoption ausgewählt", "0"];
     function createElements() {

@@ -28,12 +28,5 @@ var A10;
         { art: "Lieferung", name: "Standard-Lieferung", preis: 0.0 },
         { art: "Lieferung", name: "Express-Lieferung", preis: 4.99 },
     ];
-    A10.b = []; //export: exportiert aus gegebener Datei, mach Klassen, Variablen, funktionen über Dateigrenzen hinweg nutzbar 
-    for (var i = 0; i < A10.posten.length; i++) {
-        if (A10.posten[i].art == "Beleuchtung") {
-            var temp = [A10.posten[i].name, A10.posten[i].preis];
-            A10.b.push(temp); //Push Def. -> The push() method adds new items to the end of an array, and returns the new length.
-        }
-    }
 })(A10 || (A10 = {}));
 //# sourceMappingURL=side.js.map
