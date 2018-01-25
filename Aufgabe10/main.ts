@@ -22,7 +22,7 @@ namespace A10 {
 
     let basketBaumart: string[]= ["keine Baumart ausgewählt", "0"];
     let basketHalter: string[] = ["keiner ausgewählt", "0"];
-    let basketBeleuchtung: string[] = [b[0][0] "willst du deinen Baum leuchten lassen?" + b[0][1]];              
+    let basketBeleuchtung: string[] = [b[0][0] + "willst du deinen Baum leuchten lassen?" + b[0][1]];              
     let basketSchmuck: string[][] = [];
     let basketLieferopt: string[] = ["keine Lieferoption ausgewählt", "0"];
 
@@ -61,6 +61,7 @@ namespace A10 {
                 baumart.appendChild(br); 
             }
         }
+        
 
         //Halterung:
         let halterung: HTMLDivElement = <HTMLDivElement>document.getElementById("halterung");
@@ -83,10 +84,10 @@ namespace A10 {
                 var br: HTMLElement = document.createElement("br");
                 halterung.appendChild(br);
                 
-                
             }
         }
 
+        
         //Beleuchtung:
         let beleuchtung: HTMLDivElement = <HTMLDivElement>document.getElementById("beleuchtung");
         
@@ -145,7 +146,7 @@ namespace A10 {
 
         //Deine Daten:
         let daten: HTMLDivElement = <HTMLDivElement>document.getElementById("daten");
-       //Daten let für Zugriff auf id in der html
+        //Daten let für Zugriff auf id in der html
         
         //Daten anhängen für einzelne Eingabefelder
         name = document.createElement("input");
@@ -158,7 +159,7 @@ namespace A10 {
         strasse = document.createElement("input");
         strasse.type = "text";
         strasse.name = "DatenStrasse";
-        strasse.placeholder = "Straße";
+        strasse.placeholder = "Deine Straße";
         strasse.required = true;
         daten.appendChild(strasse);
 
@@ -166,14 +167,14 @@ namespace A10 {
         hausnummer.type = "number";
         hausnummer.name = "DatenHausnummer";
         hausnummer.placeholder = "Hausnummer";
-        hausnummer.pattern = "[0-9]{3}";
+        hausnummer.pattern = "[0-9]{9}";        /*[a-z] [A-Z]*/ // [] zahlen die geschriben werden dürfen, 9 = Anzahl an Ziffers(Bustaben)
         hausnummer.required = true;
         daten.appendChild(hausnummer);
 
         plz = document.createElement("input");
         plz.type = "text";
         plz.name = "DatenPLZ";
-        plz.placeholder = "Postleitzahl";
+        plz.placeholder = "PLZ";
         plz.pattern = "[0-9]{5}";
         plz.required = true;
         daten.appendChild(plz);
@@ -181,14 +182,14 @@ namespace A10 {
         ort = document.createElement("input");
         ort.type = "text";
         ort.name = "DatenOrt";
-        ort.placeholder = "Ort";
+        ort.placeholder = "Wohnort";
         ort.required = true;
         daten.appendChild(ort);
 
         mail = document.createElement("input");
-        mail.type = "email";
+        mail.type = "email";            // setzt @ Zeichen bei Eingabe vorraus 
         mail.name = "DatenMail";
-        mail.placeholder = "E-Mail";
+        mail.placeholder = "E-Mail Adresse";
         mail.required = true;
         daten.appendChild(mail);
 

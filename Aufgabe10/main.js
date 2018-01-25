@@ -20,7 +20,7 @@ var A10;
     let label;
     let basketBaumart = ["keine Baumart ausgewählt", "0"];
     let basketHalter = ["keiner ausgewählt", "0"];
-    let basketBeleuchtung = ["willst du deinen Baum leuchten lassen?" + A10.b[0][1]];
+    let basketBeleuchtung = [A10.b[0][0] + "willst du deinen Baum leuchten lassen?" + A10.b[0][1]];
     let basketSchmuck = [];
     let basketLieferopt = ["keine Lieferoption ausgewählt", "0"];
     function createElements() {
@@ -136,33 +136,33 @@ var A10;
         strasse = document.createElement("input");
         strasse.type = "text";
         strasse.name = "DatenStrasse";
-        strasse.placeholder = "Straße";
+        strasse.placeholder = "Deine Straße";
         strasse.required = true;
         daten.appendChild(strasse);
         hausnummer = document.createElement("input");
         hausnummer.type = "number";
         hausnummer.name = "DatenHausnummer";
         hausnummer.placeholder = "Hausnummer";
-        hausnummer.pattern = "[0-9]{3}";
+        hausnummer.pattern = "[0-9]{9}"; /*[a-z] [A-Z]*/ // [] zahlen die geschriben werden dürfen, 9 = Anzahl an Ziffers(Bustaben)
         hausnummer.required = true;
         daten.appendChild(hausnummer);
         plz = document.createElement("input");
         plz.type = "text";
         plz.name = "DatenPLZ";
-        plz.placeholder = "Postleitzahl";
+        plz.placeholder = "PLZ";
         plz.pattern = "[0-9]{5}";
         plz.required = true;
         daten.appendChild(plz);
         ort = document.createElement("input");
         ort.type = "text";
         ort.name = "DatenOrt";
-        ort.placeholder = "Ort";
+        ort.placeholder = "Wohnort";
         ort.required = true;
         daten.appendChild(ort);
         mail = document.createElement("input");
-        mail.type = "email";
+        mail.type = "email"; // setzt @ Zeichen bei Eingabe vorraus 
         mail.name = "DatenMail";
-        mail.placeholder = "E-Mail";
+        mail.placeholder = "E-Mail Adresse";
         mail.required = true;
         daten.appendChild(mail);
         //Lieferoptionen
