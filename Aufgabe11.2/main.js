@@ -30,7 +30,7 @@ var A11;
                 //radiobutton erzeugen
                 var radioB3 = document.createElement("input");
                 radioB3.type = "radio"; //radio = Auswählknöpfchen, radiogroup eins kann ausgewählt werden 
-                radioB3.name = "radioGroupBaumart";
+                radioB3.name = "Baumart";
                 radioB3.value = "radio3." + i;
                 radioB3.id = "radio3." + i;
                 baumart.appendChild(radioB3); //appendChild: heißt es wird angehängt (id = baumart in html)
@@ -61,7 +61,7 @@ var A11;
                 //Radiobutton erzeugen
                 var radioB = document.createElement("input");
                 radioB.type = "radio";
-                radioB.name = "radioGroupHalterung";
+                radioB.name = "Halterung";
                 radioB.value = "radio" + i;
                 radioB.id = "radio" + i;
                 halterung.appendChild(radioB);
@@ -79,7 +79,7 @@ var A11;
         let beleuchtung = document.getElementById("beleuchtung");
         //Selectbox erzeugen und Eigenschaften festlegen
         let selectBox2 = document.createElement("select");
-        selectBox2.name = "SelectBeleuchtung";
+        selectBox2.name = "Beleuchtung";
         selectBox2.id = "selectBeleuchtung";
         beleuchtung.appendChild(selectBox2);
         //Auswahlmöglichkeiten erzeugen
@@ -99,7 +99,7 @@ var A11;
                 //....eine Checkbox,...
                 var checkB = document.createElement("input");
                 checkB.type = "checkbox";
-                checkB.name = "CheckboxDekoartikel";
+                checkB.name = "Dekoartikel";
                 checkB.value = "check";
                 checkB.id = "check" + i;
                 schmuckartikel.appendChild(checkB);
@@ -129,39 +129,39 @@ var A11;
         //Daten anhängen für einzelne Eingabefelder
         name = document.createElement("input");
         name.type = "text";
-        name.name = "DatenName";
+        name.name = "Name";
         name.placeholder = "Vorname, Nachname";
         name.required = true;
         daten.appendChild(name);
         strasse = document.createElement("input");
         strasse.type = "text";
-        strasse.name = "DatenStrasse";
+        strasse.name = "Straße";
         strasse.placeholder = "Deine Straße";
         strasse.required = true;
         daten.appendChild(strasse);
         hausnummer = document.createElement("input");
         hausnummer.type = "number";
-        hausnummer.name = "DatenHausnummer";
+        hausnummer.name = "Hausnummer";
         hausnummer.placeholder = "Hausnummer";
         hausnummer.pattern = "[0-9]{9}"; /*[a-z] [A-Z]*/ // 9 = Anzahl an Ziffers(Bustaben)
         hausnummer.required = true;
         daten.appendChild(hausnummer);
         plz = document.createElement("input");
         plz.type = "text";
-        plz.name = "DatenPLZ";
+        plz.name = "PLZ";
         plz.placeholder = "PLZ";
         plz.pattern = "[0-9]{5}";
         plz.required = true;
         daten.appendChild(plz);
         ort = document.createElement("input");
         ort.type = "text";
-        ort.name = "DatenOrt";
+        ort.name = "Ort";
         ort.placeholder = "Wohnort";
         ort.required = true;
         daten.appendChild(ort);
         mail = document.createElement("input");
         mail.type = "email"; // setzt automatisch @ Zeichen bei Eingabe vorraus 
-        mail.name = "DatenMail";
+        mail.name = "Mail";
         mail.placeholder = "E-Mail Adresse";
         mail.required = true;
         daten.appendChild(mail);
@@ -172,7 +172,7 @@ var A11;
                 //Radiobutton erstellen
                 var radioB2 = document.createElement("input");
                 radioB2.type = "radio";
-                radioB2.name = "radioGroupLieferoptionen"; // nur eine Option kann gewählt werden da eine Gruppe
+                radioB2.name = "Lieferoptionen";
                 radioB2.value = "radio2." + i;
                 radioB2.id = "radio2." + i;
                 lieferopt.appendChild(radioB2);
@@ -190,7 +190,7 @@ var A11;
         let button = document.getElementById("button");
         let submit = document.createElement("button");
         submit.name = "Button";
-        submit.type = "button";
+        submit.type = "submit";
         submit.style.padding = "1em 2.5em 1em 2.5em";
         submit.style.borderRadius = "0.4em";
         submit.style.border = "none";
