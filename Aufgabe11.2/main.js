@@ -143,7 +143,7 @@ var A11;
         hausnummer.type = "number";
         hausnummer.name = "DatenHausnummer";
         hausnummer.placeholder = "Hausnummer";
-        hausnummer.pattern = "[0-9]{9}"; /*[a-z] [A-Z]*/ // [] zahlen die geschriben werden dürfen, 9 = Anzahl an Ziffers(Bustaben)
+        hausnummer.pattern = "[0-9]{9}"; /*[a-z] [A-Z]*/ // 9 = Anzahl an Ziffers(Bustaben)
         hausnummer.required = true;
         daten.appendChild(hausnummer);
         plz = document.createElement("input");
@@ -160,7 +160,7 @@ var A11;
         ort.required = true;
         daten.appendChild(ort);
         mail = document.createElement("input");
-        mail.type = "email"; // setzt @ Zeichen bei Eingabe vorraus 
+        mail.type = "email"; // setzt automatisch @ Zeichen bei Eingabe vorraus 
         mail.name = "DatenMail";
         mail.placeholder = "E-Mail Adresse";
         mail.required = true;
@@ -200,8 +200,8 @@ var A11;
         button.appendChild(submit);
     }
     function warenkorb(_event) {
-        let target = _event.target;
-        let stepper = [];
+        let target = _event.target; //target.id target.value sind Teile des eventListeners                      
+        let stepper = []; //target = variable mit information die vom eventListnener kommt
         let stepper2 = [];
         let checkBoxes = [];
         let checkBoxes2 = [];
