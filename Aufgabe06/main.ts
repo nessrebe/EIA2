@@ -79,6 +79,8 @@ namespace Aufgabe6 {
         crc2.lineTo(430, 200);
         crc2.strokeStyle = "#000";
         crc2.stroke();
+       
+       
 
         /////////Start Schleif    
         // Trees

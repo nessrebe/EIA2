@@ -311,7 +311,7 @@ namespace A11 {
 
     function handleMouseDown(_event: MouseEvent): void {
         let feedback: HTMLDivElement = document.createElement("div");
-        feedback.style.paddingBottom = "1em";
+            feedback.style.paddingBottom = "1em";
         if (name.checkValidity() == false || strasse.checkValidity() == false || hausnummer.checkValidity() == false || ort.checkValidity() == false || plz.checkValidity() == false || mail.checkValidity() == false) {
             feedback.innerText = "Uppps etwas stimmt nicht mit den angegebenen Daten. Bitte überprüfe diese noch einmal.";
             feedback.style.color = "red";
