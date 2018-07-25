@@ -1,0 +1,104 @@
+
+
+
+/*
+
+#meercatdiv {
+	border: 2px solid red;
+}
+
+#alpacadiv {
+	border: 2px solid red;
+}
+
+#crocodilediv {
+	border: 2px solid red;
+}
+
+#elephantdiv {
+	border: 2px solid red;
+}
+
+#monkeydiv {
+	border: 2px solid red;
+}
+
+#pigdiv {
+	border: 2px solid red;
+}
+
+#brownbeardiv {
+	border: 2px solid red;
+}
+
+#parrotdiv {
+	border: 2px solid red;
+}
+
+*/
+
+
+
+img#welcome {
+	position: absolute;
+	margin-top: 100px;
+	margin-left: 520px;
+	width: 160px;
+}
+
+img#alpaca {
+	position: absolute;
+	margin-top: 300px;
+	margin-left: 20px;
+	width: 120px;
+}
+
+img#brownbear {
+	position: absolute;
+	margin-top: 300px;
+	margin-left: 1050px;
+	width: 150px;
+}
+
+img#crocodile {
+	position: absolute;
+	margin-top: 460px;
+	margin-left: 50px;
+	width: 300px;
+}
+
+img#elephant {
+	position: absolute;
+	margin-top: 330px;
+	margin-left: 730px;
+	width: 250px;
+}
+
+img#meercat {
+	position: absolute;
+	margin-top: 540px;
+	margin-left: 450px;
+	width: 150px;
+}
+
+img#monkey {
+	position: absolute;
+	margin-top: 330px;
+	margin-left: 530px;
+	width: 130px;
+}
+
+img#pig {
+	position: absolute;
+	margin-top: 280px;
+	margin-left: 230px;
+	width: 130px;
+}
+
+img#parrot {
+	position: absolute;
+	margin-top: 20px;
+	margin-left: 600px;
+	width: 50px;
+}
+
