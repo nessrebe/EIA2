@@ -320,6 +320,7 @@ namespace ZOO {
         alert("Hey! There are many animals on our planet. Get ready for a little journey and get to know a few them :)");
         alert("To get to know them, klick on the animals and hear what they have to say. Don´t forget to turn your volume on!:)");
         
+        // Hintergrundmusik 
         var sound = new Audio("rainforestsound.wav")
         sound.loop = true;
         sound.play();
@@ -367,10 +368,10 @@ namespace ZOO {
         // snake
         for (let i:number=0; i<1;i++) {
            
-            let snakeX = Math.random()*30;
-            let snakeY = 260+ Math.random()*120;
-            let snakeDX = Math.random()*30;
-            let snakeDY = 260 + Math.random()*120;
+            let snakeX = 0;
+            let snakeY = 600;
+            let snakeDX = 0;
+            let snakeDY = 600;
             
            snake[i] = new SnakeData(snakeX, snakeY, snakeDX, snakeDY);
         }

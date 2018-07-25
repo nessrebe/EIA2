@@ -24,7 +24,7 @@ namespace ZOO {
         
         draw(): void {
             /*
-            // Turtle
+            // Turtle aus Vogelperspektive
             //körper
             crc2.fillStyle = "#698B22";
             crc2.beginPath();
@@ -78,7 +78,7 @@ namespace ZOO {
             crc2.stroke();
              */
             
-           
+            // Turtle
             crc2.fillStyle = "#cd853f";
             crc2.beginPath();
             crc2.arc(this.x, this.y, 25, 0, Math.PI, true);
@@ -114,7 +114,6 @@ namespace ZOO {
             crc2.moveTo(this.x-25,this.y)
             crc2.lineTo(this.x-40,this.y);
             crc2.lineTo(this.x-25,this.y-10);
-            
             crc2.fill();
             
             }

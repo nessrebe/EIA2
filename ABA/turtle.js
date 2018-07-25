@@ -14,7 +14,7 @@ var ZOO;
         }
         draw() {
             /*
-            // Turtle
+            // Turtle aus Vogelperspektive
             //körper
             crc2.fillStyle = "#698B22";
             crc2.beginPath();
@@ -67,6 +67,7 @@ var ZOO;
             crc2.lineWidth=1;
             crc2.stroke();
              */
+            // Turtle
             ZOO.crc2.fillStyle = "#cd853f";
             ZOO.crc2.beginPath();
             ZOO.crc2.arc(this.x, this.y, 25, 0, Math.PI, true);
