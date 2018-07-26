@@ -321,7 +321,7 @@ namespace ZOO {
         alert("To get to know them, klick on the animals which dont move and hear what they have to say. Don´t forget to turn your volume on!:)");
        
         // Hintergrundmusik 
-        var sound = new Audio("rainforestsound3.wav")
+        var sound = new Audio("rainforestsound.mp3")
         sound.loop = true;
         sound.play();
         document.body.appendChild(sound); 
