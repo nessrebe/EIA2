@@ -317,11 +317,11 @@ namespace ZOO {
         crc2.fill();
         
       
-        alert("Hey! There are many animals on our planet. Get ready for a little journey and get to know a few them :)");
-        alert("To get to know them, klick on the animals and hear what they have to say. Don´t forget to turn your volume on!:)");
-        
+        alert("Hey! There are many animals on our planet. Get ready for a ittle journey and get to know a few them :)");
+        alert("To get to know them, klick on the animals which dont move and hear what they have to say. Don´t forget to turn your volume on!:)");
+       
         // Hintergrundmusik 
-        var sound = new Audio("rainforestsound.wav")
+        var sound = new Audio("rainforestsound2.wav")
         sound.loop = true;
         sound.play();
         document.body.appendChild(sound); 

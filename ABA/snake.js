@@ -46,7 +46,7 @@ var ZOO;
             ZOO.crc2.arc(this.x + 150, this.y + 0.5, 3, 0, 2 * Math.PI);
             ZOO.crc2.fill();
             ZOO.crc2.closePath();
-            // Po 
+            // ende 
             ZOO.crc2.fillStyle = "#665547";
             ZOO.crc2.beginPath();
             ZOO.crc2.arc(this.x + -25, this.y + 2, 4, 0, 2 * Math.PI);

@@ -60,7 +60,7 @@ namespace ZOO {
             crc2.fill();
             crc2.closePath();
             
-            // Po 
+            // ende 
             crc2.fillStyle = "#665547";    
             crc2.beginPath();
             crc2.arc(this.x + -25, this.y + 2, 4, 0, 2 * Math.PI);
