@@ -4,13 +4,20 @@ var ZOO;
         constructor(_x, _y, _dx, _dy) {
             super(_x, _y, _dx, _dy);
         }
+        // von rechts nach links  
         move() {
-            this.x += 0 + Math.random() * 0.5;
-            this.y += 0;
-            if (this.x > 1200) {
-                this.y = this.dy;
-                this.x = this.dx;
+            this.x += -0.5;
+            if (this.x < 0) {
+                this.x = 100;
             }
+            /*this.x += 0 + Math.random()*0.5;
+             this.y += 0;
+          
+            
+                 if (this.x < 1200) {
+                 this.y = this.dy;
+                 this.x = this.dx;
+                 }*/
         }
         draw() {
             //cloud

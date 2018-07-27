@@ -11,16 +11,25 @@ namespace ZOO {
         
        
         
-        
+       // von rechts nach links  
        move(): void {
-            this.x += 0 + Math.random()*0.5;
+            this.x += -0.5; 
+           
+         
+                if (this.x < 0) {
+                this.x = 100;
+                }
+           
+           
+           /*this.x += 0 + Math.random()*0.5;
             this.y += 0;
          
-               
-                if (this.x > 1200) {
+           
+                if (this.x < 1200) {
                 this.y = this.dy;
                 this.x = this.dx;
-                }
+                }*/
+           
            
         }
         
