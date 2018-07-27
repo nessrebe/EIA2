@@ -17,7 +17,7 @@ namespace ZOO {
             this.y += 0;
          
                
-                if (this.x < 1200) {
+                if (this.x > 1200) {
                 this.y = this.dy;
                 this.x = this.dx;
                 }
