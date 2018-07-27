@@ -11,7 +11,7 @@ namespace ZOO {
         
        // Schlange schleicht hinter dem crocodile
        move(): void {
-            this.x += 4;
+            this.x += 3;
             this.y += 0;
          
                if (this.x > 50) {

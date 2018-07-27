@@ -6,7 +6,7 @@ var ZOO;
         }
         // Schlange schleicht hinter dem crocodile
         move() {
-            this.x += 4;
+            this.x += 3;
             this.y += 0;
             if (this.x > 50) {
                 this.x += 0;

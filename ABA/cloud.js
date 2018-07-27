@@ -6,9 +6,9 @@ var ZOO;
         }
         // von rechts nach links  
         move() {
-            this.x += -0.5;
+            this.x += -0.7;
             if (this.x < 0) {
-                this.x = 100;
+                this.x = 1000;
             }
             /*this.x += 0 + Math.random()*0.5;
              this.y += 0;
