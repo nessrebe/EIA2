@@ -21,16 +21,6 @@ namespace ZOO {
                 }
            
            
-           /*this.x += 0 + Math.random()*0.5;
-            this.y += 0;
-         
-           
-                if (this.x < 1200) {
-                this.y = this.dy;
-                this.x = this.dx;
-                }*/
-           
-           
         }
         
         
