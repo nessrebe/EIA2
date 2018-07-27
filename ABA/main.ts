@@ -202,13 +202,11 @@ namespace ZOO {
         crc2.arc(1100,80,50,0,2 * Math.PI)
         crc2.fillStyle ="fff061";
         crc2.fill();
-    
-        
+
         //river
         crc2.fillStyle = "lightblue";
         crc2.fillRect(0, 280, 1200, 140);
-        
-        
+
         // gate left pole
         crc2.beginPath();
         crc2.moveTo(500,270);
@@ -318,6 +316,7 @@ namespace ZOO {
         crc2.fill();
         
       
+        
         alert("Hey! There are many animals on our planet. Get ready for a little journey and get to know a few them :)");
         alert("To get to know them, klick on the animals which dont move and hear what they have to say. Don´t forget to turn your volume on!:)");
        
@@ -326,6 +325,7 @@ namespace ZOO {
         sound.loop = true;
         sound.play();
         document.body.appendChild(sound); 
+        
         
     
         //duck
@@ -408,22 +408,22 @@ namespace ZOO {
          }
         
         
-        for (i = 0; i < bug.length; i++) {
+         for (i = 0; i < bug.length; i++) {
                         bug[i].update();
-         }
+        }
         
    
-        for (i = 0; i < turtle.length; i++) {
+         for (i = 0; i < turtle.length; i++) {
                         turtle[i].update();
          }
         
         
-        for (i = 0; i < snake.length; i++) {
+         for (i = 0; i < snake.length; i++) {
                         snake[i].update();
          }
         
         
-        for (i = 0; i < cloud.length; i++) {
+         for (i = 0; i < cloud.length; i++) {
                         cloud[i].update();
          }
         
