@@ -22,6 +22,7 @@ var ZOO;
     let bug = [];
     let turtle = [];
     let snake = [];
+    let cloud = [];
     window.addEventListener("load", canvasInput);
     let image;
     function canvasInput() {
@@ -249,7 +250,7 @@ var ZOO;
         ZOO.crc2.arc(867, 75, 15, 0, 2 * Math.PI);
         ZOO.crc2.fillStyle = "#ffffff";
         ZOO.crc2.fill();
-        alert("Hey! There are many animals on our planet. Get ready for a ittle journey and get to know a few them :)");
+        alert("Hey! There are many animals on our planet. Get ready for a little journey and get to know a few them :)");
         alert("To get to know them, klick on the animals which dont move and hear what they have to say. Don´t forget to turn your volume on!:)");
         // Hintergrundmusik 
         var sound = new Audio("rainforestsound.mp3");
@@ -288,6 +289,14 @@ var ZOO;
             let snakeDY = 600;
             snake[i] = new ZOO.SnakeData(snakeX, snakeY, snakeDX, snakeDY);
         }
+        // randome clouds
+        for (let i = 0; i < 3; i++) {
+            let cloudX = Math.random() * 1000;
+            let cloudY = 30;
+            let cloudDX = Math.random() * 1000;
+            let cloudDY = 30;
+            cloud[i] = new ZOO.CloudData(cloudX, cloudY, cloudDX, cloudDY);
+        }
         image = ZOO.crc2.getImageData(0, 0, 1200, 700); //Bild sichern
         animate();
         function animate() {
@@ -303,6 +312,9 @@ var ZOO;
             }
             for (i = 0; i < snake.length; i++) {
                 snake[i].update();
+            }
+            for (i = 0; i < cloud.length; i++) {
+                cloud[i].update();
             }
             window.setTimeout(animate, 20);
         }

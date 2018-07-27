@@ -26,6 +26,7 @@ namespace ZOO {
     let bug: BugData[] = [];
     let turtle: TurtleData[] = [];
     let snake: SnakeData[] = [];
+    let cloud: CloudData[] = [];
 
     window.addEventListener("load", canvasInput); 
 
@@ -317,7 +318,7 @@ namespace ZOO {
         crc2.fill();
         
       
-        alert("Hey! There are many animals on our planet. Get ready for a ittle journey and get to know a few them :)");
+        alert("Hey! There are many animals on our planet. Get ready for a little journey and get to know a few them :)");
         alert("To get to know them, klick on the animals which dont move and hear what they have to say. Don´t forget to turn your volume on!:)");
        
         // Hintergrundmusik 
@@ -377,6 +378,19 @@ namespace ZOO {
         }
         
         
+        
+        // randome clouds
+        for (let i:number=0; i<3;i++) {
+           
+            let cloudX = Math.random()*1000;
+            let cloudY = 30;
+            let cloudDX = Math.random()*1000;
+            let cloudDY = 30;
+            
+           cloud[i] = new CloudData(cloudX, cloudY, cloudDX, cloudDY);
+        }
+        
+        
 
         image = crc2.getImageData(0, 0, 1200, 700);      //Bild sichern
 
@@ -406,6 +420,11 @@ namespace ZOO {
         
         for (i = 0; i < snake.length; i++) {
                         snake[i].update();
+         }
+        
+        
+        for (i = 0; i < cloud.length; i++) {
+                        cloud[i].update();
          }
         
         
