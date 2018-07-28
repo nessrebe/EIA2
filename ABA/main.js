@@ -58,7 +58,7 @@ var ZOO;
         elephantdiv.style.width = "270px";
         elephantdiv.style.height = "300px";
         elephantdiv.style.position = "absolute";
-        elephantdiv.style.top = "400px";
+        elephantdiv.style.top = "340px";
         elephantdiv.style.left = "730px";
         elephantdiv.onclick = function () { elephantaudio.play(); alert('Hey! I am Elvira the Elephant!'); };
         document.body.appendChild(elephantdiv);
