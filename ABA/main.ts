@@ -200,7 +200,7 @@ namespace ZOO {
         // sun
         crc2.beginPath();
         crc2.arc(1100,80,50,0,2 * Math.PI)
-        crc2.fillStyle ="fff061";
+        crc2.fillStyle ="#fff061";
         crc2.fill();
 
         //river

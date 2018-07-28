@@ -142,7 +142,7 @@ var ZOO;
         // sun
         ZOO.crc2.beginPath();
         ZOO.crc2.arc(1100, 80, 50, 0, 2 * Math.PI);
-        ZOO.crc2.fillStyle = "fff061";
+        ZOO.crc2.fillStyle = "#fff061";
         ZOO.crc2.fill();
         //river
         ZOO.crc2.fillStyle = "lightblue";
